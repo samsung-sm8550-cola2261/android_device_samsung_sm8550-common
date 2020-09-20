@@ -360,6 +360,12 @@ PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/sku/properties/,$(TARGET_COPY_OUT_ODM)/etc/sku_props)
 
+# S Pen
+ifeq ($(TARGET_HAVE_SPEN),true)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/idc/sec_e-pen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/sec_e-pen.idc
+endif
+
 # Telephony
 PRODUCT_PACKAGES += \
     qti-telephony-hidl-wrapper \
