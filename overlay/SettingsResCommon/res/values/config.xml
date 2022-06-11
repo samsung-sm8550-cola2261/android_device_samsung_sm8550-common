@@ -20,6 +20,10 @@
         <item>256</item>
     </integer-array>
 
+    <!-- Sensor trigger values -->
+    <string name="pickup_sensor" translatable="false">android.sensor.tilt_detector</string>
+    <item name="pickup_sensor_value" format="float" type="dimen">0.0</item>
+
     <!-- Max network scan search time in seconds -->
     <integer name="config_network_scan_helper_max_search_time_sec">254</integer>
 
