@@ -108,7 +108,6 @@ on property:vendor.post_boot.parsed=1
     write /proc/sys/walt/input_boost/input_boost_ms 0
 
 on early-boot
-    start vendor.sensors
     verity_update_state
 
 on boot
