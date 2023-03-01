@@ -151,6 +151,9 @@ on boot
     chown root system /dev/block/bootdevice/by-name/rawdump
     chmod 0660 /dev/block/bootdevice/by-name/rawdump
 
+    # permissions for charging
+    chown system radio /sys/class/power_supply/battery/charging_enabled
+
 # For CDSP crash
 on property:ro.boot.debug_level=0x494d
     setprop vendor.fastrpc.process.attrs 0x40000001
