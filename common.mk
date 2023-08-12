@@ -187,11 +187,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.class_main.sh \
+    init.kernel.post_boot.sh \
+    init.kernel.post_boot-kalama.sh \
     init.mdm.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sh \
+    init.qti.kernel.rc \
     init.recovery.qcom.rc \
     init.target.rc \
     ueventd-odm.rc \
