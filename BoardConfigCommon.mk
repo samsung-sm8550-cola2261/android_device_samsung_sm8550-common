@@ -52,6 +52,7 @@ TARGET_NEEDS_DTBOIMAGE := true
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
 
 # HWUI
+HWUI_COMPILE_FOR_PERF := true
 TARGET_USES_VULKAN := true
 
 # Init Boot
