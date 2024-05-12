@@ -148,6 +148,8 @@ ro.surface_flinger.wcg_composition_dataspace=143261696
 
 # HWUI
 ro.hwui.use_vulkan=true
+debug.hwui.target_cpu_time_percent=30
+debug.hwui.use_hint_manager=true
 debug.hwui.renderer=skiavk
 debug.renderengine.backend=skiavkthreaded
 renderthread.skia.reduceopstasksplitting=true
