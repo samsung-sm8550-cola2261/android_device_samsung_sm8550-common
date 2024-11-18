@@ -19,4 +19,7 @@
     <!-- Ambient max refresh rate -->
     <integer name="config_keyguardMaxRefreshRate">60</integer>
     <integer name="config_aodMaxRefreshRate">60</integer>
+    
+    <!-- Charging info current divider, if needed -->
+    <integer name="config_currentInfoDivider" translatable="false">1</integer>
 </resources>
