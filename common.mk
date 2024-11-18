@@ -293,6 +293,7 @@ PRODUCT_PACKAGES += \
     FrameworksResCommon \
     FrameworksResSamsung \
     FrameworksResTarget \
+    FrameworksSettingsLib \
     NcmTetheringOverlay \
     SettingsResCommon \
     SettingsResSamsung \
