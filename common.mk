@@ -40,7 +40,6 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     libsndcardparser \
-    libtinycompress \
     libvolumelistener \
     sound_trigger.primary.kalama
 
@@ -183,7 +182,6 @@ PRODUCT_COPY_FILES += \
 
 # Media
 PRODUCT_PACKAGES += \
-    libavservices_minijail \
     libpalclient
 
 PRODUCT_COPY_FILES += \
