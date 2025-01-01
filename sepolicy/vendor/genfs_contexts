@@ -53,6 +53,7 @@ genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i
 genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i2c-57/57-0066/max77705-usbc/wakeup"                                         u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i2c-57/57-0066/wakeup"                                                       u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/soc/a600000.ssusb/a600000.dwc3/wakeup"                                                                                    u:object_r:sysfs_wakeup:s0
+genfscon sysfs "/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a9c000.qcom,qup_hsuart/wakeup"                                                            u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/soc/ae90000.qcom,dp_display/wakeup"                                                                                       u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/soc/soc:qcom,qbt2000/wakeup"                                                                                              u:object_r:sysfs_wakeup:s0
 
