@@ -57,3 +57,7 @@ type vendor_sysfs_touchscreen_writable, fs_type, sysfs_type;
 # Vibrator
 type vendor_sysfs_vib_support, fs_type, sysfs_type;
 type vendor_sysfs_vib_writable, fs_type, sysfs_type;
+
+# Wi-Fi
+type sysfs_wifi, fs_type, sysfs_type;
+type wifi_efs_file, file_type;
