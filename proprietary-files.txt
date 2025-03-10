@@ -1107,7 +1107,11 @@ vendor/etc/vintf/manifest/iweaver_v1_manifest.xml
 
 # WiFi
 vendor/bin/cnss-daemon
+vendor/bin/hw/macloader
 vendor/bin/pktlogconf
+vendor/etc/init/init.vendor.wlan.rc
+vendor/etc/init/wifi.rc:vendor/etc/init/wifi_sec.rc
+vendor/etc/init/wifi_qcom.rc
 
 # Widevine DRM
 vendor/bin/hw/android.hardware.drm-service.widevine
