@@ -1,4 +1,4 @@
-# All unpinned blobs are extracted from S9160ZHS5CYA1
+# All unpinned blobs are extracted from S9160ZHS6CYC1
 
 # Current blobs with ELF checks disabled:
 # libar-pal depends on libagmclient, which is a gnu makefile target
@@ -839,8 +839,8 @@ vendor/lib64/libshctrl.so
 vendor/lib64/vendor.samsung.hardware.security.hermes-V1-ndk.so
 
 # Hotword Enrollment
-product/priv-app/HotwordEnrollmentOKGoogleEx4HEXAGON/HotwordEnrollmentOKGoogleEx4HEXAGON.apk
-product/priv-app/HotwordEnrollmentXGoogleEx4HEXAGON/HotwordEnrollmentXGoogleEx4HEXAGON.apk
+product/priv-app/HotwordEnrollmentOKGoogleEx4HEXAGON/HotwordEnrollmentOKGoogleEx4HEXAGON.apk|b9986addb4957132e68dc0a8ea648ea6506d44f6
+product/priv-app/HotwordEnrollmentXGoogleEx4HEXAGON/HotwordEnrollmentXGoogleEx4HEXAGON.apk|ec6b8b49fe46c216c30aa78e29c591ed6d3c5b2e
 system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
 system_ext/framework/com.android.hotwordenrollment.common.util.jar
 
@@ -1205,7 +1205,7 @@ vendor/lib64/libthermalclient.so
 vendor/lib64/vendor.samsung.hardware.thermal@1.0.so
 
 # Time services
-vendor/app/TimeService/TimeService.apk
+vendor/app/TimeService/TimeService.apk|b1d20ea3b505a3441cf3a20c12c69a29eaeb5a66
 vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
