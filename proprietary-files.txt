@@ -135,13 +135,9 @@ vendor/lib64/lib_SoundAlive_play_plus_ver800.so
 vendor/lib64/lib_SoundBooster_ver1100.so
 vendor/lib64/soundfx/libasphere.so
 vendor/lib64/soundfx/libaudioeffectoffload.so
-vendor/lib64/soundfx/libaudiosaplus_sec.so
 vendor/lib64/soundfx/libmyspace.so
 vendor/lib64/soundfx/libquasar.so
-vendor/lib64/soundfx/libsamsungSoundbooster_plus.so
 vendor/lib64/soundfx/libshoebox.so
-vendor/lib64/soundfx/libswdap.so
-vendor/lib64/soundfx/libswspatializer.so
 
 # Audio configs
 vendor/etc/audio/sku_kalama/mixer_paths_kalama_cdp.xml
@@ -161,29 +157,7 @@ vendor/etc/audio_effects_spatializer.xml
 vendor/etc/audio_policy_configuration_base.xml
 vendor/etc/card-defs.xml
 vendor/etc/sec_audio_volume_curve.xml
-vendor/etc/situation_audio_policy_volumes_sec.xml
 vendor/etc/usecaseKvManager.xml
-
-# Audio firmware
-vendor/firmware/SoundBoosterParam.bin
-vendor/firmware/cs35l43-bot-dsp1-spk-prot.bin
-vendor/firmware/cs35l43-bot-dsp1-spk-prot.wmfw
-vendor/firmware/cs35l43-rcv-dsp1-spk-prot.bin
-vendor/firmware/cs35l43-rcv-dsp1-spk-prot.wmfw
-vendor/firmware/cs40l26-a2h.bin
-vendor/firmware/cs40l26-calib.bin
-vendor/firmware/cs40l26-calib.wmfw
-vendor/firmware/cs40l26-dvl.bin
-vendor/firmware/cs40l26-svc.bin
-vendor/firmware/cs40l26-svc1.bin
-vendor/firmware/cs40l26-svc2.bin
-vendor/firmware/cs40l26-svc3.bin
-vendor/firmware/cs40l26-wt1.bin
-vendor/firmware/cs40l26-wt2.bin
-vendor/firmware/cs40l26-wt3.bin
-vendor/firmware/cs40l26.bin
-vendor/firmware/cs40l26.wmfw
-vendor/firmware/dax_param.bin
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.1-service-qti
@@ -307,8 +281,6 @@ vendor/lib64/camera/fdconfigvideolite.bin
 vendor/lib64/cdsp_face.so
 vendor/lib64/com.qti.qseeaon.so
 vendor/lib64/com.qti.qseeutils.so
-vendor/lib64/com.qti.settings.sm8550.so
-vendor/lib64/com.qti.stats.common.so
 vendor/lib64/hw/camera.unihal.default.so
 vendor/lib64/libAFSegmenter_v1.camera.samsung.so
 vendor/lib64/libAIHighRes_interface.so
@@ -429,7 +401,6 @@ vendor/lib64/libhdraid.gpu.arcsoft.so
 vendor/lib64/libhdraid.npu.arcsoft.so
 vendor/lib64/libhme.so
 vendor/lib64/libhypermotion_core.so
-vendor/lib64/libhypermotion_interface.so
 vendor/lib64/libiddqd.uniplugin@1.0.so
 vendor/lib64/libimage_enhancement.arcsoft.so
 vendor/lib64/libimagecodec_native.quram.so
@@ -526,7 +497,6 @@ vendor/lib64/libthreadutils.so
 vendor/lib64/libtswrappercommon.so
 vendor/lib64/libubifocus.so
 vendor/lib64/libuniplugin.so
-vendor/lib64/libvdis.uniplugin@1.0.so
 vendor/lib64/libvdis_core.so
 vendor/lib64/libvideobeauty.arcsoft.so
 vendor/lib64/libvideobeauty.uniplugin@1.0.so
@@ -1226,7 +1196,6 @@ vendor/bin/tftp_server
 vendor/etc/init/vendor.qti.tftp.rc
 
 # Thermal engine
-vendor/bin/hw/vendor.samsung.hardware.thermal@1.0-service
 vendor/bin/thermal-engine-v2
 vendor/etc/init/init_thermal-engine-v2.rc
 vendor/etc/init/vendor.samsung.hardware.thermal@1.0-service.rc
