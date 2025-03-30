@@ -11,3 +11,6 @@ allow hal_health_default hal_thermal_samsung_hwservice:hwservice_manager find;
 binder_call(hal_health_default, hal_thermal_default)
 
 allow hal_health_default sysfs:file { getattr open read };
+
+# Allow binder calls from health hal to system app 
+binder_call(hal_health_default, system_app)

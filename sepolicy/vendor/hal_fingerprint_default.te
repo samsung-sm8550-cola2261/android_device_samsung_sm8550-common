@@ -22,3 +22,6 @@ allow hal_fingerprint_default vendor_biometrics_data_file:file create_file_perms
 
 # Allow fingerprint HAL to search vendor_sysfs_battery files
 allow hal_fingerprint_default vendor_sysfs_battery:dir search;
+
+# Allow binder calls from fp hal to system app
+binder_call(hal_fingerprint_default, system_app)
