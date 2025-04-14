@@ -267,6 +267,10 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/qcom-caf/common/libqti-perfd-client \
     hardware/samsung
 
+# OpenEUICC
+PRODUCT_PACKAGES += \
+    OpenEUICC
+
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
