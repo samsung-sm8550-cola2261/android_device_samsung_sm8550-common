@@ -249,6 +249,10 @@ PRODUCT_SOONG_NAMESPACES += \
     kernel/samsung/sm8550 \
     kernel/samsung/sm8550-modules
 
+# OpenEUICC
+PRODUCT_PACKAGES += \
+    OpenEUICC
+
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
