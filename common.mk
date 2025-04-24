@@ -239,7 +239,6 @@ PRODUCT_PACKAGES += \
     SettingsResCommon \
     SettingsResSamsung \
     SystemUIResCommon \
-    TelecommResCommon \
     TelephonyResCommon \
     WifiResCommon \
     WifiResTarget \
