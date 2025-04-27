@@ -571,6 +571,10 @@ vendor/etc/media_codecs_dolby_audio.xml
 # ESE
 vendor/lib64/vendor.qti.esepowermanager@1.0.so
 
+# eUICC - from OnePlus 11
+product/etc/permissions/privapp-permissions-euiccgoogle.xml|f2c044ab8db11f299b106375dbd06feef4ff84e0
+product/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED|e08fc712975d0c4baed73a2a09f1244ef67179fb
+
 # EVA
 vendor/etc/eva/facedetection/model3.dat
 vendor/lib64/libcv_common.so
