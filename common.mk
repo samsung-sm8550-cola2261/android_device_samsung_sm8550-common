@@ -283,6 +283,7 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 
 PRODUCT_PACKAGES += \
     CarrierConfigResCommon \
+    DeviceAsWebcamResCommon \
     FrameworksResCommon \
     FrameworksResSamsung \
     FrameworksResTarget \
