@@ -144,7 +144,6 @@ vendor/etc/audio_effects_haptic.xml
 vendor/etc/audio_effects_sec.xml
 vendor/etc/audio_effects_spatializer.xml
 vendor/etc/audio_policy_configuration_base.xml
-vendor/etc/card-defs.xml
 vendor/etc/sec_audio_volume_curve.xml
 vendor/etc/usecaseKvManager.xml
 
