@@ -200,7 +200,7 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
 
 # Vibrator
-#$(call soong_config_set,samsungVibratorVars,duration_amplitude,true)
+$(call soong_config_set,samsungVibratorVars,duration_amplitude,true)
 
 # WiFi
 BOARD_WLAN_DEVICE := qcwcn
