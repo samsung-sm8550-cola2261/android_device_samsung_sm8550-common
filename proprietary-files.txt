@@ -685,11 +685,6 @@ vendor/lib64/vendor.samsung.hardware.gnss-V2-ndk_platform.so
 vendor/lib64/hw/gatekeeper.mdfpp.so
 
 # Graphics (Adreno firmware)
-vendor/firmware/a740_sqe.fw
-vendor/firmware/a740_zap.b00
-vendor/firmware/a740_zap.b01
-vendor/firmware/a740_zap.elf
-vendor/firmware/gmu_gen70200.bin
 vendor/gpu/kbc/sequence_manifest.bin
 vendor/gpu/kbc/unified_kbcs_64.bin
 vendor/gpu/kbc/unified_ksqs.bin
