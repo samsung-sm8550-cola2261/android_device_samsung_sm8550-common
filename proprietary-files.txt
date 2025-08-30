@@ -1138,15 +1138,6 @@ vendor/lib64/vendor.qti.hardware.trustedui@1.1.so
 vendor/lib64/vendor.qti.hardware.trustedui@1.2.so
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
-# VPU firmware
-vendor/firmware/vpu20_4v.mbn
-vendor/firmware/vpu20_4v_unsigned.mbn
-vendor/firmware/vpu30_4v_16mb.mbn
-vendor/firmware/vpu30_4v_16mb_unsigned.mbn
-vendor/firmware/vpu30_4v_unsigned.mbn
-vendor/firmware/vpu33_4v.mbn
-vendor/firmware/vpu33_4v_unsigned.mbn
-
 # Vendor Firmware
 vendor/firmware/ss_dsi_panel_PBA_BOOTING_FHD.dat
 vendor/firmware/wlan-connection-roaming-backup.ini
