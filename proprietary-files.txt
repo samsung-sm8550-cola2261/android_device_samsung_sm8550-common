@@ -98,7 +98,6 @@ vendor/lib64/libApeSwDec.so
 vendor/lib64/libEvrcSwCodec.so
 vendor/lib64/libFlacSwDec.so
 vendor/lib64/libPeripheralStateUtils.so
-vendor/lib64/lib_lvacfs.so
 vendor/lib64/libadm.so
 vendor/lib64/libagm.so;DISABLE_CHECKELF
 vendor/lib64/libar-pal.so;DISABLE_CHECKELF
@@ -138,7 +137,6 @@ vendor/etc/audio/sku_kalama/resourcemanager_kalama_grd.xml
 vendor/etc/audio/sku_kalama/resourcemanager_kalama_mtp.xml
 vendor/etc/audio/sku_kalama/resourcemanager_kalama_qrd.xml
 vendor/etc/audio_effects.xml
-vendor/etc/audio_effects_haptic.xml
 vendor/etc/audio_effects_sec.xml
 vendor/etc/audio_effects_spatializer.xml
 vendor/etc/audio_policy_configuration_base.xml
@@ -270,7 +268,6 @@ vendor/lib64/libSNPE.so
 vendor/lib64/libSRIB_ARVL_HAP.camera.samsung.so
 vendor/lib64/libSSMAutoTrigger_interface.so
 vendor/lib64/libSSM_AutoTrigger.so
-vendor/lib64/libSWNDFilterPreview.camera.samsung.so
 vendor/lib64/libSceneDetector_v1.camera.samsung.so
 vendor/lib64/libSecJpegEncoder.uniplugin@1.0.so
 vendor/lib64/libSnpeCpu.so;FIX_SONAME
@@ -279,7 +276,6 @@ vendor/lib64/libSnpeHtpV73Stub.so
 vendor/lib64/libTetraMFP10.camera.samsung.so
 vendor/lib64/libTetraMFP10Tuning.camera.samsung.so
 vendor/lib64/libUniPluginUtils.so
-vendor/lib64/libUniScaler.uniplugin@1.0.so
 vendor/lib64/libVideoSuperNight_interface.uniplugin@1.0.so
 vendor/lib64/lib_profiler.so
 vendor/lib64/libai_denoiser_interface.so
@@ -369,7 +365,6 @@ vendor/lib64/libmmcamera_mfnr_t4.so
 vendor/lib64/libmmcamera_pdpc.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libmultiobject_tracker.so
-vendor/lib64/libndfilter_preview.uniplugin@1.0.so
 vendor/lib64/libopencv.so
 vendor/lib64/libopencv3a.so
 vendor/lib64/libopestriping.so
