@@ -464,6 +464,12 @@ vendor/etc/init/ssgtzd.rc
 vendor/etc/seccomp_policy/qwesd@2.0.policy
 vendor/etc/ssg/tz_whitelist.json
 
+# Dummy libs
+vendor/lib64/lib_SamsungRec_07020.so;DUMMY_SHARED_LIB;
+vendor/lib64/lib_SamsungRec_08020.so;DUMMY_SHARED_LIB;
+vendor/lib64/lib_lvacfs.so;DUMMY_SHARED_LIB;
+vendor/lib64/libautoframing_object_tracker.camera.samsung.so;DUMMY_SHARED_LIB;
+
 # DPM
 system_ext/etc/init/tcmd.rc
 system_ext/etc/seccomp_policy/tcmd.policy
