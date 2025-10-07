@@ -7,4 +7,9 @@
   ( new_objects
     glyph_app
     sltntc
-    system_fingerprint_prop))
+    product_ship_prop
+    sec_camera_prop
+    system_fingerprint_prop
+    system_sensor_prop
+    vendor_securehw_prop
+    vendor_securenvm_prop))
