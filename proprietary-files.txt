@@ -85,7 +85,6 @@ vendor/etc/models/acd/event.eai
 vendor/etc/models/acd/music.eai
 vendor/etc/models/acd/speech.eai
 vendor/etc/vintf/manifest/secaudiohalaidl_manifest.xml
-vendor/lib64/hw/audio.primary.kalama.so
 vendor/lib64/hw/libsecaudiohal_aidl.so
 vendor/lib64/libAlacSwDec.so
 vendor/lib64/libApeSwDec.so
@@ -94,12 +93,10 @@ vendor/lib64/libFlacSwDec.so
 vendor/lib64/libPeripheralStateUtils.so
 vendor/lib64/libadm.so
 vendor/lib64/libagm.so
-vendor/lib64/libar-pal.so
 vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libdsd2pcm.so
 vendor/lib64/libprofileparamstorage.so
 vendor/lib64/libqtigefar.so
-vendor/lib64/librecordalive.so
 vendor/lib64/libsecaudiocoreutils.so
 vendor/lib64/libsecaudioinfo.so
 vendor/lib64/libsecaudiolevel.so
