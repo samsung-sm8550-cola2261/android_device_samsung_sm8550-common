@@ -331,6 +331,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.mbms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.mbms.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml
 
+# Touch features
+PRODUCT_PACKAGES += \
+    vendor.lineage.touch-service.samsung
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb-service.qti \
