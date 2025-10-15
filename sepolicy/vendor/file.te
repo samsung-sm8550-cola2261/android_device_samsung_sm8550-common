@@ -10,6 +10,10 @@ type vendor_convergence_data_file, file_type, data_file_type;
 # Camera
 type vendor_sysfs_camera_writable, fs_type, sysfs_type;
 
+# Display
+type vendor_sysfs_display, fs_type, sysfs_type;
+type vendor_sysfs_mdnie, fs_type, sysfs_type;
+
 # EFS
 type app_efs_file, file_type;
 type battery_efs_file, file_type;
