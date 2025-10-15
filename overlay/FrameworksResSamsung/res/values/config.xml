@@ -7,22 +7,6 @@
     <!-- Whether device supports double tap to wake -->
     <bool name="config_supportDoubleTapWake">true</bool>
 
-    <!-- The default refresh rate for a given device. Change this value to set a higher default
-         refresh rate. If the hardware composer on the device supports display modes with a higher
-         refresh rate than the default value specified here, the framework may use those higher
-         refresh rate modes if an app chooses one by setting preferredDisplayModeId or calling
-         setFrameRate().
-         If a non-zero value is set for config_defaultPeakRefreshRate, then
-         config_defaultRefreshRate may be set to 0, in which case the value set for
-         config_defaultPeakRefreshRate will act as the default frame rate. -->
-    <integer name="config_defaultRefreshRate">0</integer>
-
-    <!-- The default peak refresh rate for a given device. Change this value if you want to prevent
-         the framework from using higher refresh rates, even if display modes with higher refresh
-         rates are available from hardware composer. Only has an effect if the value is
-         non-zero. -->
-    <integer name="config_defaultPeakRefreshRate">120</integer>
-
     <!-- Low zone brightness thresholds in the range [0, 255] -->
     <integer-array name="config_brightnessThresholdsOfPeakRefreshRate" translatable="false">
         <item>7</item>
@@ -34,10 +18,6 @@
         <item>-1</item>
         <item>15</item>
     </integer-array>
-
-    <!-- Default refresh rate in the zone defined by brightness and ambient thresholds.
-         If non-positive, then the refresh rate is unchanged even if thresholds are configured. -->
-    <integer name="config_defaultRefreshRateInZone">120</integer>
 
     <!-- Whether the new Auto Selection Network UI should be shown -->
     <bool name="config_enableNewAutoSelectNetworkUI">true</bool>
