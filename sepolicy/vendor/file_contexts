@@ -19,6 +19,11 @@
 /mnt/vendor/efs/prov_data(/.*)?              u:object_r:dak_efs_file:s0
 /mnt/vendor/efs/tee(/.*)?                    u:object_r:tee_efs_file:s0
 
+# Battery
+/sys/class/power_supply(/.*)?                                                                   u:object_r:sysfs_batteryinfo:s0
+/sys/class/power_supply/battery(/.*)?                                                           u:object_r:sysfs_batteryinfo:s0
+/sys/devices/platform/soc/soc:battery/power_supply(/.*)?                                        u:object_r:sysfs_batteryinfo:s0
+
 # Convergence data
 /data/vendor/conn(/.*)?                      u:object_r:vendor_convergence_data_file:s0
 
@@ -80,6 +85,7 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.health-service\.samsung                                    u:object_r:hal_health_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch-service\.samsung                                       u:object_r:hal_lineage_touch_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay-service.samsung-qcom                             u:object_r:hal_lineage_livedisplay_qti_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.powershare-service\.samsung                                  u:object_r:hal_lineage_powershare_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.secure_element@1\.2-service                                u:object_r:hal_secure_element_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator-service\.samsung                                  u:object_r:hal_vibrator_default_exec:s0
 /(vendor|system/vendor)/bin/hw/nxp\.android\.hardware\.nfc@1\.2-service                                      u:object_r:hal_nfc_default_exec:s0
