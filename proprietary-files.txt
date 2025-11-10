@@ -680,7 +680,6 @@ vendor/lib64/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib64/libq3dtools_adreno.s
 vendor/lib64/egl/libq3dtools_esx.so
 vendor/lib64/libCB.so
 vendor/lib64/libOpenCL.so
-vendor/lib64/libadreno_app_profiles.so
 vendor/lib64/libadreno_utils.so
 vendor/lib64/libgpudataproducer.so
 vendor/lib64/libgralloc_helper.unifunc.so
@@ -925,9 +924,6 @@ vendor/lib64/librpmb.so
 vendor/lib64/libspl.so
 vendor/lib64/libssd.so
 vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
-
-# QSPM
-vendor/lib64/vendor.qti.qspmhal@1.0.so
 
 # RIL - from S911BXXS8DYF2
 vendor/etc/plmn_delta.bin|dbcc4d73dca31bd132b042e36be988701c42a552
