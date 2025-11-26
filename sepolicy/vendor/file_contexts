@@ -33,9 +33,6 @@
 # Firmware
 /odm/firmware(/.*)?                          u:object_r:vendor_firmware_file:s0
 
-# Gatekeeper data
-/data/vendor/gatekeeper(/.*)?                u:object_r:vendor_gatekeeper_data_file:s0
-
 # Hermesd device
 /dev/k250a                                   u:object_r:k250a_device:s0
 
