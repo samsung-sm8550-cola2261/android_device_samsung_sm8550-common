@@ -66,6 +66,11 @@ blob_fixups: blob_fixups_user_type = {
         .sig_replace('E0 8A', '94 8B'),
     'vendor/etc/init/android.hardware.security.keymint-service-qti.rc': blob_fixup()
         .regex_replace('android.hardware.security.keymint-service', 'android.hardware.security.keymint-service-qti'),
+    (
+        'vendor/lib64/libdpps.so',
+        'vendor/lib64/libsnapdragoncolor-manager.so',
+    ): blob_fixup()
+        .replace_needed('libtinyxml2.so', 'libtinyxml2_1.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
