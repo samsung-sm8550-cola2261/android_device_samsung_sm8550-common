@@ -1,4 +1,4 @@
-# All unpinned blobs are extracted from S911BXXS8DYG5
+# All unpinned blobs are extracted from S916BXXS8DYI3
 
 # ADSP
 vendor/bin/adsprpcd
@@ -918,7 +918,7 @@ vendor/lib64/libspl.so
 vendor/lib64/libssd.so
 vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
 
-# RIL - from S911BXXS8DYF2
+# RIL - from dm2qxxx-user 15 AP3A.240905.015.A2 S916BXXS8DYI3 release-keys
 vendor/etc/plmn_delta.bin|dbcc4d73dca31bd132b042e36be988701c42a552
 vendor/etc/plmn_delta_attaio.bin|751a1c7105f1c03fc196689c2a71e2c69aa14e1f
 vendor/etc/plmn_delta_usagsm.bin|9a25ec9e9da16ed2f8a9db07f037fe08283b24e5
