@@ -610,9 +610,6 @@ vendor/lib64/libsemnativecarrierfeature.so
 # Fingerprint
 vendor/lib64/libegis_fp_normal_sensor_test.so
 vendor/lib64/libgf_in_system_lib.so
-vendor/lib64/libqfp_sensortest.so
-vendor/lib64/libsfp_sensor.so
-vendor/lib64/libsfp_teegw.so
 vendor/lib64/libsynaFpSensorTestNwd.so
 vendor/lib64/vendor.samsung.hardware.biometrics.fingerprint-V1-ndk.so
 
@@ -1040,8 +1037,6 @@ vendor/lib64/libssc_default_listener.so
 
 # Sensors config
 vendor/etc/sensors/config/akmlib.json
-vendor/etc/sensors/config/kailua_ak991x_0.json
-vendor/etc/sensors/config/kailua_default_sensors.json
 vendor/etc/sensors/config/kailua_dynamic_sensors_template.json
 vendor/etc/sensors/config/kailua_iot_hdk_dae.json
 vendor/etc/sensors/config/kailua_power_0.json
@@ -1057,7 +1052,6 @@ vendor/etc/sensors/config/sns_direct_channel.json
 vendor/etc/sensors/config/sns_flip_state.json
 vendor/etc/sensors/config/sns_fmv.json
 vendor/etc/sensors/config/sns_fmv_legacy.json
-vendor/etc/sensors/config/sns_gyro_cal.json
 vendor/etc/sensors/config/sns_mag_cal.json
 vendor/etc/sensors/config/sns_mag_cal_legacy.json
 vendor/etc/sensors/config/sns_offbody_detect_phone.json
