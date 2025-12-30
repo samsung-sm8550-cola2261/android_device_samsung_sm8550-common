@@ -122,7 +122,6 @@ vendor/etc/audio/sku_kalama/mixer_paths_kalama_cdp_wsa883x.xml
 vendor/etc/audio/sku_kalama/mixer_paths_kalama_grd.xml
 vendor/etc/audio/sku_kalama/mixer_paths_kalama_mtp.xml
 vendor/etc/audio/sku_kalama/mixer_paths_kalama_qrd.xml
-vendor/etc/audio/sku_kalama/resourcemanager.xml
 vendor/etc/audio/sku_kalama/resourcemanager_kalama_cdp.xml
 vendor/etc/audio/sku_kalama/resourcemanager_kalama_grd.xml
 vendor/etc/audio/sku_kalama/resourcemanager_kalama_mtp.xml
@@ -132,8 +131,8 @@ vendor/etc/audio_effects_sec.xml
 vendor/etc/audio_effects_spatializer.xml
 vendor/etc/audio_policy_configuration_base.xml
 vendor/etc/card-defs.xml
+vendor/etc/default_volume_tables.xml
 vendor/etc/sec_audio_volume_curve.xml
-vendor/etc/usecaseKvManager.xml
 
 # CDSP
 vendor/bin/cdsprpcd
@@ -811,7 +810,6 @@ vendor/lib64/libqc2audio_base.so
 vendor/lib64/libqc2audio_basecodec.so
 vendor/lib64/libqc2audio_core.so
 vendor/lib64/libqc2audio_hooks.so
-vendor/lib64/libqc2audio_hwaudiocodec.so
 vendor/lib64/libqc2audio_platform.so
 vendor/lib64/libqc2audio_swaudiocodec.so
 vendor/lib64/libqc2audio_utils.so
