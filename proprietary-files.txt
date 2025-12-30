@@ -117,10 +117,8 @@ vendor/lib64/soundfx/libquasar.so
 vendor/lib64/soundfx/libshoebox.so
 
 # Audio configs
-vendor/etc/audio/sku_kalama/resourcemanager.xml
 vendor/etc/default_volume_tables.xml
 vendor/etc/sec_audio_volume_curve.xml
-vendor/etc/usecaseKvManager.xml
 
 # CDSP
 vendor/bin/cdsprpcd
@@ -795,7 +793,6 @@ vendor/lib64/libqc2audio_base.so
 vendor/lib64/libqc2audio_basecodec.so
 vendor/lib64/libqc2audio_core.so
 vendor/lib64/libqc2audio_hooks.so
-vendor/lib64/libqc2audio_hwaudiocodec.so
 vendor/lib64/libqc2audio_platform.so
 vendor/lib64/libqc2audio_swaudiocodec.so
 vendor/lib64/libqc2audio_utils.so
