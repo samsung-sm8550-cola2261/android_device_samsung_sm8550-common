@@ -34,3 +34,8 @@ allow hal_camera_default rild:unix_stream_socket connectto;
 
 # Allow binder calls from camera hal to system app
 binder_call(hal_camera_default, system_app)
+
+# Camera policy for UDC mask
+allow hal_camera_default vendor_sysfs_display:dir search;
+allow hal_camera_default vendor_sysfs_display:file { read write open getattr };
+
