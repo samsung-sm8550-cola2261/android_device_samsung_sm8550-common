@@ -9,6 +9,7 @@
 /efs/recovery(/.*)?                          u:object_r:sec_efs_file:s0
 /efs/sec_efs(/.*)?                           u:object_r:sec_efs_file:s0
 /efs/usb_hw_param(/.*)?                      u:object_r:sec_efs_file:s0
+/efs/wifi(/.*)?                              u:object_r:wifi_efs_file:s0
 
 # mnt/efs files
 /mnt/vendor/efs(/.*)?                        u:object_r:sec_efs_file:s0
@@ -18,6 +19,7 @@
 /mnt/vendor/efs/prov(/.*)?                   u:object_r:dak_efs_file:s0
 /mnt/vendor/efs/prov_data(/.*)?              u:object_r:dak_efs_file:s0
 /mnt/vendor/efs/tee(/.*)?                    u:object_r:tee_efs_file:s0
+/mnt/vendor/efs/wifi(/.*)?                   u:object_r:wifi_efs_file:s0
 
 # Battery
 /sys/class/power_supply(/.*)?                                                                   u:object_r:sysfs_batteryinfo:s0

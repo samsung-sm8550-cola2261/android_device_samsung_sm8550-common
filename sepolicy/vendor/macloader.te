@@ -1,0 +1,51 @@
+type macloader, domain;
+type macloader_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(macloader)
+
+# Allow macloader to search efs_file
+allow macloader efs_file:dir search;
+
+# Allow macloader to read/write wifi_efs_file
+allow macloader wifi_efs_file:dir create_dir_perms;
+allow macloader wifi_efs_file:file create_file_perms;
+
+# Allow macloader to read/write vendor_sysfs_wifi_writable
+allow macloader vendor_sysfs_wifi_writable:file rw_file_perms;
+
+# Allow macloader to read/write vendor_sysfs_wifi
+allow macloader vendor_sysfs_wifi:file rw_file_perms;
+allow macloader vendor_sysfs_wifi:dir search;
+
+# Allow macloader to read/write vendor_convergence_data_file
+allow macloader vendor_convergence_data_file:dir create_dir_perms;
+allow macloader vendor_convergence_data_file:file create_file_perms;
+
+# Allow macloader to read/write mnt_vendor_file
+allow macloader mnt_vendor_file:dir r_dir_perms;
+
+# Allow macloader to read vendor_sysfs_mmc_host
+r_dir_file(macloader, vendor_sysfs_mmc_host)
+
+# Allow macloader to read/write sysfs_wlan_fwpath
+r_dir_file(macloader, sysfs_wlan_fwpath)
+allow macloader sysfs_wlan_fwpath:file w_file_perms;
+
+# Allow macloader to access kernel module
+allow macloader kernel:key search;
+allow macloader kernel:system module_request;
+allow macloader system_file:system module_load;
+allow macloader vendor_file:system module_load;
+
+# Allow macloader to have the following capabilities
+allow macloader self:capability { chown fowner fsetid net_admin net_raw sys_module };
+
+# Allow macloader to create and perform ioctl operations on udp_socket
+allow macloader self:udp_socket { create ioctl };
+allowxperm macloader self:udp_socket ioctl { 0x8913 0x8914 };
+
+# Allow macloader to read the vendor_shell_exec file
+allow macloader vendor_shell_exec:file rx_file_perms;
+
+# Allow macloader to set the vendor_wifi_prop property
+set_prop(macloader, vendor_wifi_prop)
