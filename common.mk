@@ -289,6 +289,10 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/qcom-caf/common/libqti-perfd-client \
     hardware/samsung
 
+# Overlays Lineage-Specific
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage/StaticOverlay
+
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
