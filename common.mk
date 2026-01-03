@@ -293,6 +293,9 @@ PRODUCT_SOONG_NAMESPACES += \
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-lineage/StaticOverlay
 
+PRODUCT_PACKAGES += \
+    SystemUIResEvolution
+
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2024 The Evolution X Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+
+    <!-- Height of the landscape battery icon in the status bar. -->
+    <dimen name="status_bar_battery_icon_height_landscape_ios15">15.0dip</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape_ios16">15.0dip</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape_oneui7">28.0dip</dimen>
+
+    <!-- Width of the landscape battery icon in the status bar. -->
+    <dimen name="status_bar_battery_icon_width_landscape_ios15">29.0dip</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape_ios16">28.0dip</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape_oneui7">28.0dip</dimen>
+
+</resources>
