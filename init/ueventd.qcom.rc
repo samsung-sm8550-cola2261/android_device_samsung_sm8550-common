@@ -605,6 +605,9 @@ subsystem mem_buf_vm
 /dev/cec*                                            0660    system  system
 /sys/devices/platform/soc/984000.i2c/i2c-0/0-002b    get_hpd_stat    0660   system   system
 
+# Battery charging control
+/sys/class/power_supply/battery                          batt_slate_mode                0660    system  system
+
 #Virtualization Attributes
 /dev/gunyah                 0666   root     root
 
