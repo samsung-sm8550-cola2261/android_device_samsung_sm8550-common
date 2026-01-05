@@ -73,6 +73,7 @@ BOARD_BOOTCONFIG := \
 
 BOARD_KERNEL_CMDLINE := \
     androidboot.hardware=qcom \
+    androidboot.init_fatal_reboot_target=recovery \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3 \
     printk.devkmsg=on \
