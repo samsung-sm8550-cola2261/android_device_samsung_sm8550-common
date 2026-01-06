@@ -259,16 +259,16 @@
     },
     {
       "Name": "TouchscreenEnable",
-      "Path": "/sys/class/sec/tsp/input/enabled",
+      "Path": "/sys/class/sec/tsp2/enabled",
       "Values": [
-          "1",
-          "0"
+          "2,1",
+          "1,0"
       ],
       "ResetOnInit": true
     },
     {
       "Name": "DoubleTapToWakeEnable",
-      "Path": "/sys/class/sec/tsp/cmd",
+      "Path": "/sys/class/sec/tsp2/cmd",
       "Values": [
           "aot_enable,0",
           "aot_enable,1"
@@ -665,7 +665,7 @@
       "PowerHint": "INTERACTIVE",
       "Node": "TouchscreenEnable",
       "Duration": 0,
-      "Value": "1"
+      "Value": "2,1"
     },
     {
       "PowerHint": "DOUBLE_TAP_TO_WAKE",
