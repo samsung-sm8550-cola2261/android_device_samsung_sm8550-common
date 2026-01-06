@@ -480,6 +480,7 @@ firmware_directories /vendor/firmware-modem/image/ /vendor/vm-system/
 
 # TSP-1 (DUAL)
 /sys/class/sec/tsp1				cmd							0660	system radio
+/sys/class/sec/tsp1				enabled						0660	system system
 /sys/class/sec/tsp1/input		enabled						0660	system system
 /sys/class/sec/tsp1				sensitivity_mode			0664	system system
 /sys/class/sec/tsp1				prox_power_off				0664	system system
@@ -487,7 +488,8 @@ firmware_directories /vendor/firmware-modem/image/ /vendor/vm-system/
 /sys/class/sec/tsp1				dualscreen_policy			0660	system system
 
 # TSP-2 (DUAL)
-/sys/class/sec/tsp2				cmd							0660	system radio
+/sys/class/sec/tsp2				cmd							0660	system system
+/sys/class/sec/tsp2				enabled						0660	system system
 /sys/class/sec/tsp2/input		enabled						0660	system system
 /sys/class/sec/tsp2				sensitivity_mode			0664	system system
 /sys/class/sec/tsp2				prox_power_off				0664	system system
