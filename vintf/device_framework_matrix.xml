@@ -76,10 +76,26 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
-        <name>vendor.lineage.health</name>
+        <name>vendor.samsung.hardware.keymint</name>
+        <version>1-2</version>
+        <interface>
+            <name>ISehKeyMintExtension</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.samsung.hardware.keymint</name>
+        <version>1-2</version>
+        <interface>
+            <name>ISehKeyMintFactory</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.samsung.hardware.audio</name>
         <version>1</version>
         <interface>
-            <name>IChargingControl</name>
+            <name>ISecAudioHal</name>
             <instance>default</instance>
         </interface>
     </hal>
