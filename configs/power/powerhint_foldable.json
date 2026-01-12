@@ -276,6 +276,24 @@
       "DefaultIndex": 0
     },
     {
+      "Name": "InnerTouchscreenEnable",
+      "Path": "/sys/class/sec/tsp1/enabled",
+      "Values": [
+          "2,1",
+          "1,0"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "InnerDoubleTapToWakeEnable",
+      "Path": "/sys/class/sec/tsp1/cmd",
+      "Values": [
+          "aot_enable,0",
+          "aot_enable,1"
+      ],
+      "DefaultIndex": 0
+    },
+    {
       "Name": "CPUBWHystTriggerCount",
       "Path": "/sys/devices/system/cpu/bus_dcvs/DDR/24091000.qcom,bwmon-ddr/hyst_trigger_count",
       "Values": [
@@ -670,6 +688,18 @@
     {
       "PowerHint": "DOUBLE_TAP_TO_WAKE",
       "Node": "DoubleTapToWakeEnable",
+      "Duration": 0,
+      "Value": "aot_enable,1"
+    },
+    {
+      "PowerHint": "INTERACTIVE",
+      "Node": "InnerTouchscreenEnable",
+      "Duration": 0,
+      "Value": "2,1"
+    },
+    {
+      "PowerHint": "DOUBLE_TAP_TO_WAKE",
+      "Node": "InnerDoubleTapToWakeEnable",
       "Duration": 0,
       "Value": "aot_enable,1"
     },
