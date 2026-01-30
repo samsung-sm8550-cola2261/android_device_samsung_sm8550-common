@@ -116,7 +116,6 @@ vendor/lib64/soundfx/libquasar.so
 vendor/lib64/soundfx/libshoebox.so
 
 # Audio configs
-vendor/etc/default_volume_tables.xml
 vendor/etc/sec_audio_volume_curve.xml
 
 # CDSP
