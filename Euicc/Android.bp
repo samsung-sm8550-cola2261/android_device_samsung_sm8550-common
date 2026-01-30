@@ -1,0 +1,17 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+phony {
+    name: "SamsungEuicc",
+    required: [
+        "EuiccPolicy",
+        "EuiccPolicySamsung",
+    ],
+}
+
+runtime_resource_overlay {
+    name: "EuiccPolicySamsung",
+    product_specific: true,
+}
