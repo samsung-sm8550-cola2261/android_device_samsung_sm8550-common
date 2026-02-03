@@ -15,4 +15,7 @@
 
     <!-- Doze: does this device support STATE_DOZE?  -->
     <bool name="doze_display_state_supported">true</bool>
+
+    <integer name="config_keyguardMaxRefreshRate">10</integer>
+    <integer name="config_aodMaxRefreshRate">10</integer>
 </resources>
