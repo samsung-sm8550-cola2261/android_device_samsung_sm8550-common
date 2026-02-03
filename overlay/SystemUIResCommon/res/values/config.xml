@@ -15,4 +15,8 @@
 
     <!-- Doze: does this device support STATE_DOZE?  -->
     <bool name="doze_display_state_supported">true</bool>
+
+    <!-- Ambient max refresh rate -->
+    <integer name="config_keyguardMaxRefreshRate">60</integer>
+    <integer name="config_aodMaxRefreshRate">60</integer>
 </resources>
