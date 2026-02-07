@@ -17,6 +17,7 @@
 /mnt/vendor/efs/camera(/.*)?                 u:object_r:camera_efs_file:s0
 /mnt/vendor/efs/prov(/.*)?                   u:object_r:dak_efs_file:s0
 /mnt/vendor/efs/prov_data(/.*)?              u:object_r:dak_efs_file:s0
+/mnt/vendor/efs/spen(/.*)?                   u:object_r:spen_efs_file:s0
 /mnt/vendor/efs/tee(/.*)?                    u:object_r:tee_efs_file:s0
 
 # Battery
@@ -57,6 +58,9 @@
 /dev/ttyGS[0-9]*                             u:object_r:serial_device:s0
 /dev/ttyHS[0-9]*                             u:object_r:serial_device:s0
 
+# S Pen
+/sys/devices/virtual/sec/sec_epen(/.*)?                       u:object_r:sysfs_spen:s0
+
 # Goodix fingerprint device
 /dev/goodix_fp                               u:object_r:goodix_fingerprint_device:s0
 
@@ -89,5 +93,6 @@
 /(vendor|system/vendor)/bin/hw/nxp\.android\.hardware\.nfc@1\.2-service                                      u:object_r:hal_nfc_default_exec:s0
 /(vendor|system/vendor)/bin/hw/sehradiomanager                                                               u:object_r:sehradiomanager_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.samsung\.hardware\.camera\.provider-service_64                        u:object_r:hal_camera_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.samsung\.hardware\.spen-service                                       u:object_r:hal_samsung_spen_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.samsung\.hardware\.thermal@1\.0-service                               u:object_r:hal_thermal_default_exec:s0
 /(vendor|system/vendor)/bin/secril_config_svc                                                                u:object_r:vendor_secril_config_svc_exec:s0

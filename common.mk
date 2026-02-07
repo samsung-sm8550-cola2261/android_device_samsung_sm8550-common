@@ -360,6 +360,13 @@ PRODUCT_COPY_FILES += \
 BOARD_SHIPPING_API_LEVEL := 33
 PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
 
+# S Pen
+ifeq ($(TARGET_HAVE_SPEN),true)
+    PRODUCT_PACKAGES += \
+        SPenActions \
+        vendor.samsung.hardware.spen-service
+endif
+
 # Telephony
 PRODUCT_PACKAGES += \
     qti-telephony-hidl-wrapper \
