@@ -18,10 +18,12 @@ TARGET_CPU_VARIANT_RUNTIME := kryo300
 AB_OTA_UPDATER := false
 
 # ART
+ifneq ($(filter user userdebug,$(TARGET_BUILD_VARIANT)),)
 ART_BUILD_TARGET_NDEBUG := true
 ART_BUILD_TARGET_DEBUG := false
 ART_BUILD_HOST_NDEBUG := true
 ART_BUILD_HOST_DEBUG := false
+endif
 
 # Audio
 AUDIO_FEATURE_ENABLED_DLKM := true
