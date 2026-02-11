@@ -100,6 +100,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
 # Dex
+ifneq ($(filter user userdebug,$(TARGET_BUILD_VARIANT)),)
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep \
     Settings \
@@ -115,6 +116,7 @@ USE_DEX2OAT_DEBUG := false
 PRODUCT_SYSTEM_PROPERTIES += \
     dalvik.vm.dex2oat-filter=everything \
     dalvik.vm.image-dex2oat-filter=everything
+endif
 
 # Display
 PRODUCT_PACKAGES += \
