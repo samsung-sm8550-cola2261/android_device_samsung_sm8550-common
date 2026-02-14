@@ -126,4 +126,20 @@
         <point>60,-4000</point>
         <point>100,0</point>
     </reference>
+    <!-- Extra references -->
+    <reference name="DEFAULT_EXTRA_SPEAKER_NOTIFY_VOLUME_CURVE">
+    <!-- Default extra speaker notification Volume Curve -->
+        <point>1,-3200</point>
+        <point>33,-2400</point>
+        <point>66,-1200</point>
+        <point>100,0</point>
+    </reference>
+    <reference name="DEFAULT_EXTRA_NON_MUTABLE_SPEAKER_NOTIFY_VOLUME_CURVE">
+    <!-- Default extra non-mutable speaker notification Volume Curve -->
+    <!--     based on DEFAULT_EXTRA_SPEAKER_NOTIFY_VOLUME_CURVE -->
+        <point>0,-3200</point>
+        <point>33,-2400</point>
+        <point>66,-1200</point>
+        <point>100,0</point>
+    </reference>
 </volumes>
