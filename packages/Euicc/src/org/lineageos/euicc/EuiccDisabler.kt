@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.lineageos.euicc
+package org.lineageos.euicc.samsung
 
 import android.content.Context
 import android.content.pm.ApplicationInfo

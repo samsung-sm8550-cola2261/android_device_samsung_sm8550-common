@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <permissions>
-    <privapp-permissions package="org.lineageos.euicc">
+    <privapp-permissions package="org.lineageos.euicc.samsung">
         <permission name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"/>
         <permission name="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
     </privapp-permissions>

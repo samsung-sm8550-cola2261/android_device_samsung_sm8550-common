@@ -18,23 +18,23 @@ android_app {
         proguard_flags_files: ["proguard.flags"],
     },
     required: [
-        "org.lineageos.euicc.xml",
-        "hidden-api-whitelist-org.lineageos.euicc.xml",
+        "org.lineageos.euicc.samsung.xml",
+        "hidden-api-whitelist-org.lineageos.euicc.samsung.xml",
     ],
 }
 
 prebuilt_etc {
-    name: "org.lineageos.euicc.xml",
+    name: "org.lineageos.euicc.samsung.xml",
     relative_install_path: "permissions",
-    filename: "org.lineageos.euicc.xml",
-    src: "org.lineageos.euicc.xml",
+    filename: "org.lineageos.euicc.samsung.xml",
+    src: "org.lineageos.euicc.samsung.xml",
     product_specific: true,
 }
 
 prebuilt_etc {
-    name: "hidden-api-whitelist-org.lineageos.euicc.xml",
+    name: "hidden-api-whitelist-org.lineageos.euicc.samsung.xml",
     relative_install_path: "sysconfig",
-    filename: "hidden-api-whitelist-org.lineageos.euicc.xml",
-    src: "hidden-api-whitelist-org.lineageos.euicc.xml",
+    filename: "hidden-api-whitelist-org.lineageos.euicc.samsung.xml",
+    src: "hidden-api-whitelist-org.lineageos.euicc.samsung.xml",
     product_specific: true,
 }
