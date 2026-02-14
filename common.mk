@@ -135,6 +135,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
+# EUICC
+PRODUCT_PACKAGES += \
+    SamsungEuicc
+
 # Fastboot
 PRODUCT_PACKAGES += \
     fastbootd
