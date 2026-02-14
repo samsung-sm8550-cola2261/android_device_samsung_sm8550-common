@@ -61,12 +61,8 @@ volume index from 0 to 100.
                                          ref="DEFAULT_HEARING_AID_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_RING" deviceCategory="DEVICE_CATEGORY_HEADSET"
                                        ref="DEFAULT_DEVICE_CATEGORY_HEADSET_VOLUME_CURVE"/>
-    <volume stream="AUDIO_STREAM_RING" deviceCategory="DEVICE_CATEGORY_SPEAKER">
-        <point>1,-2970</point>
-        <point>33,-2010</point>
-        <point>66,-1020</point>
-        <point>100,0</point>
-    </volume>
+    <volume stream="AUDIO_STREAM_RING" deviceCategory="DEVICE_CATEGORY_SPEAKER"
+                                       ref="DEFAULT_EXTRA_SPEAKER_NOTIFY_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_RING" deviceCategory="DEVICE_CATEGORY_EARPIECE"
                                        ref="DEFAULT_DEVICE_CATEGORY_EARPIECE_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_RING" deviceCategory="DEVICE_CATEGORY_EXT_MEDIA"
@@ -85,12 +81,8 @@ volume index from 0 to 100.
                                         ref="DEFAULT_HEARING_AID_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_ALARM" deviceCategory="DEVICE_CATEGORY_HEADSET"
                                         ref="DEFAULT_NON_MUTABLE_HEADSET_VOLUME_CURVE"/>
-    <volume stream="AUDIO_STREAM_ALARM" deviceCategory="DEVICE_CATEGORY_SPEAKER">
-        <point>0,-2970</point>
-        <point>33,-2010</point>
-        <point>66,-1020</point>
-        <point>100,0</point>
-    </volume>
+    <volume stream="AUDIO_STREAM_ALARM" deviceCategory="DEVICE_CATEGORY_SPEAKER"
+                                        ref="DEFAULT_EXTRA_NON_MUTABLE_SPEAKER_NOTIFY_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_ALARM" deviceCategory="DEVICE_CATEGORY_EARPIECE"
                                         ref="DEFAULT_NON_MUTABLE_EARPIECE_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_ALARM" deviceCategory="DEVICE_CATEGORY_EXT_MEDIA"
@@ -99,12 +91,8 @@ volume index from 0 to 100.
                                         ref="DEFAULT_NON_MUTABLE_HEARING_AID_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_NOTIFICATION" deviceCategory="DEVICE_CATEGORY_HEADSET"
                                                ref="DEFAULT_DEVICE_CATEGORY_HEADSET_VOLUME_CURVE"/>
-    <volume stream="AUDIO_STREAM_NOTIFICATION" deviceCategory="DEVICE_CATEGORY_SPEAKER">
-        <point>1,-2970</point>
-        <point>33,-2010</point>
-        <point>66,-1020</point>
-        <point>100,0</point>
-    </volume>
+    <volume stream="AUDIO_STREAM_NOTIFICATION" deviceCategory="DEVICE_CATEGORY_SPEAKER"
+                                               ref="DEFAULT_EXTRA_SPEAKER_NOTIFY_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_NOTIFICATION" deviceCategory="DEVICE_CATEGORY_EARPIECE"
                                                ref="DEFAULT_DEVICE_CATEGORY_EARPIECE_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_NOTIFICATION" deviceCategory="DEVICE_CATEGORY_EXT_MEDIA"
