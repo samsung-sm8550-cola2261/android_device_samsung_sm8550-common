@@ -5825,3 +5825,105 @@ esac
 misc_link=$(ls -l /dev/block/bootdevice/by-name/misc)
 real_path=${misc_link##*>}
 setprop persist.vendor.mmi.misc_dev_path $real_path
+
+# CPU SM8550 walt governor tweaks
+# =========================
+# central value definitions
+# =========================
+
+CPU0_NODES="
+adaptive_high_freq=1228000
+adaptive_high_freq_kernel=1228000
+adaptive_low_freq=672000
+adaptive_low_freq_kernel=902400
+down_rate_limit_us=10000
+hispeed_freq=1228000
+hispeed_load=90
+pl=0
+rtg_boost_freq=0
+target_load_shift=0
+target_load_thresh=0
+up_delay_freq=0
+up_rate_limit_us=500
+"
+
+CPU3_NODES="
+adaptive_high_freq=1536000
+adaptive_high_freq_kernel=1536000
+adaptive_low_freq=729000
+adaptive_low_freq_kernel=729000
+down_rate_limit_us=5000
+hispeed_freq=1785000
+hispeed_load=90
+pl=1
+rtg_boost_freq=500000
+target_load_shift=0
+target_load_thresh=0
+up_delay_freq=0
+up_rate_limit_us=500
+"
+
+CPU7_NODES="
+adaptive_high_freq=1593000
+adaptive_high_freq_kernel=1593000
+adaptive_low_freq=998000
+adaptive_low_freq_kernel=998000
+down_rate_limit_us=5000
+hispeed_freq=1478000
+hispeed_load=90
+pl=1
+rtg_boost_freq=0
+target_load_shift=0
+target_load_thresh=0
+up_delay_freq=0
+up_rate_limit_us=500
+"
+
+# =========================
+# setter with verification
+# =========================
+
+set_and_verify() {
+    NODE="$1"
+    VAL="$2"
+
+    while [ ! -e "$NODE" ]; do
+        sleep 1
+    done
+
+    while true; do
+        chmod 644 "$NODE" 2>/dev/null
+        echo "$VAL" > "$NODE"
+        chmod 440 "$NODE" 2>/dev/null
+
+        CUR="$(cat "$NODE" 2>/dev/null)"
+        [ "$CUR" = "$VAL" ] && break
+
+        sleep 1
+    done
+}
+
+# =========================
+# apply helper
+# =========================
+
+apply_cpu() {
+    CPU="$1"
+    LIST="$2"
+
+    echo "$LIST" | while IFS='=' read -r KEY VAL; do
+        [ -z "$KEY" ] && continue
+        set_and_verify "/sys/devices/system/cpu/${CPU}/cpufreq/walt/${KEY}" "$VAL"
+    done
+}
+
+# =========================
+# apply
+# =========================
+
+sleep 2
+apply_cpu cpu0 "$CPU0_NODES"
+apply_cpu cpu3 "$CPU3_NODES"
+apply_cpu cpu7 "$CPU7_NODES"
+
+# End of CPU walt governor tweaks
