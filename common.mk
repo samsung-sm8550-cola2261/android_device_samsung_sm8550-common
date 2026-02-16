@@ -356,6 +356,10 @@ PRODUCT_COPY_FILES += \
 BOARD_SHIPPING_API_LEVEL := 33
 PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
 
+# SKU properties
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/sku/properties/,$(TARGET_COPY_OUT_ODM)/etc/sku_props)
+
 # Telephony
 PRODUCT_PACKAGES += \
     qti-telephony-hidl-wrapper \
