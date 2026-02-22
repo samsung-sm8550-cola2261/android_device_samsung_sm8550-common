@@ -7,5 +7,5 @@
           package="android.overlay.samsung">
     <overlay android:targetPackage="android"
              android:isStatic="true"
-             android:priority="600" />
+             android:priority="300" />
 </manifest>
