@@ -1,4 +1,4 @@
-# All unpinned blobs are extracted from S916BXXS8DYI3
+# All unpinned blobs are extracted from S916BXXS8EZA1
 
 # ADSP
 vendor/bin/adsprpcd
@@ -395,7 +395,6 @@ vendor/lib64/libswregistrationalgo.so
 vendor/lib64/libsynx.so
 vendor/lib64/libtensorflowLite.singletake.camera.samsung.so
 vendor/lib64/libtensorflowlite.camera.samsung.so
-vendor/lib64/libtensorflowlite_gpu.camera.samsung.so
 vendor/lib64/libtfestriping.so
 vendor/lib64/libtflitecore.so
 vendor/lib64/libthreadutils.so
@@ -692,7 +691,7 @@ vendor/lib64/hw/vulkan.adreno.so|733bad5c6ae0ce14d9351a20210bda3a1b86f6de
 vendor/bin/hermesd
 vendor/etc/init/hermesd.rc
 vendor/etc/secnvm/k250a_47000301_0.img
-vendor/etc/secnvm/k250a_47000304_c.img
+vendor/etc/secnvm/k250a_47000305_c.img
 vendor/etc/secnvm/k250a_47000306_1.img
 vendor/lib64/libese-grdg.so
 vendor/lib64/libhermes.so
@@ -915,7 +914,7 @@ vendor/lib64/libspl.so
 vendor/lib64/libssd.so
 vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
 
-# RIL - from dm2qxxx-user 15 AP3A.240905.015.A2 S916BXXS8DYI3 release-keys
+# RIL - from dm2qxxx-user 16 BP2A.250605.031.A3 S916BXXS8EZA1 release-keys
 vendor/etc/plmn_delta.bin|dbcc4d73dca31bd132b042e36be988701c42a552
 vendor/etc/plmn_delta_attaio.bin|751a1c7105f1c03fc196689c2a71e2c69aa14e1f
 vendor/etc/plmn_delta_usagsm.bin|9a25ec9e9da16ed2f8a9db07f037fe08283b24e5
@@ -1111,7 +1110,6 @@ vendor/etc/vintf/manifest/iweaver_v1_manifest.xml
 # WiFi
 vendor/bin/cnss-daemon
 vendor/bin/pktlogconf
-vendor/etc/wifi/indoorchannel.info
 
 # Widevine DRM
 vendor/bin/hw/android.hardware.drm-service.widevine
