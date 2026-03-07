@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- About device screen, build maintainer -->
+    <string name="build_maintainer_summary">cola2261</string>
+    <string name="build_maintainer_donate_url">https://github.com/cola2261</string>
+</resources>

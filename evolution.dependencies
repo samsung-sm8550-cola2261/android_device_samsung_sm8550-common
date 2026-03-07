@@ -1,0 +1,32 @@
+[
+  {
+    "repository": "hardware_dolby",
+    "target_path": "hardware/dolby",
+    "branch": "bka"
+  },
+  {
+    "repository": "hardware_samsung",
+    "target_path": "hardware/samsung",
+    "branch": "bka"
+  },
+  {
+    "repository": "kernel_samsung_sm8550",
+    "target_path": "kernel/samsung/sm8550",
+    "branch": "bka"
+  },
+  {
+    "repository": "kernel_samsung_sm8550-devicetrees",
+    "target_path": "kernel/samsung/sm8550-devicetrees",
+    "branch": "bka"
+  },
+  {
+    "repository": "kernel_samsung_sm8550-modules",
+    "target_path": "kernel/samsung/sm8550-modules",
+    "branch": "bka"
+  },
+  {
+    "repository": "vendor_samsung_sm8550-common",
+    "target_path": "vendor/samsung/sm8550-common",
+    "branch": "bka"
+  }
+]
