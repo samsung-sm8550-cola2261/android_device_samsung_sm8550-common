@@ -663,28 +663,30 @@ vendor/gpu/kbc/sequence_manifest.bin
 vendor/gpu/kbc/unified_kbcs_64.bin
 vendor/gpu/kbc/unified_ksqs.bin
 
-# Graphics (Adreno)
-vendor/lib64/egl/eglSubDriverAndroid.so
-vendor/lib64/egl/libEGL_adreno.so;SYMLINK=vendor/lib64/libEGL_adreno.so
-vendor/lib64/egl/libGLESv1_CM_adreno.so
-vendor/lib64/egl/libGLESv2_adreno.so;SYMLINK=vendor/lib64/libGLESv2_adreno.so
-vendor/lib64/egl/libVkLayer_ADRENO_qprofiler.so
-vendor/lib64/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib64/libq3dtools_adreno.so
-vendor/lib64/egl/libq3dtools_esx.so
-vendor/lib64/libCB.so
-vendor/lib64/libOpenCL.so
-vendor/lib64/libadreno_utils.so
-vendor/lib64/libgpudataproducer.so
-vendor/lib64/libgralloc_helper.unifunc.so
-vendor/lib64/libgsl.so
-vendor/lib64/libkcl.so
-vendor/lib64/libkernelmanager.so
-vendor/lib64/libllvm-glnext.so
-vendor/lib64/libllvm-qcom.so
-vendor/lib64/libllvm-qgl.so
+# Graphics (Adreno) - from Adreno 762.40
+vendor/lib64/egl/eglSubDriverAndroid.so|5fa45337aaeac15263e9ec4b89a7ea1e448a944e
+vendor/lib64/egl/libEGL_adreno.so;SYMLINK=vendor/lib64/libEGL_adreno.so|02e863881eff132f3a6f726824f9a33ddaacd717
+vendor/lib64/egl/libGLESv1_CM_adreno.so|9c667937b0d5e51a674d56e112684fea796c4e42
+vendor/lib64/egl/libGLESv2_adreno.so;SYMLINK=vendor/lib64/libGLESv2_adreno.so|e34c9b485b4bcd09dd435b25c5f004ad99e651d1
+vendor/lib64/egl/libVkLayer_ADRENO_qprofiler.so|ce7c3048ecdee0062d84b4abff6f540056007145
+vendor/lib64/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib64/libq3dtools_adreno.so|b754367f7547601982d789e8373bfc0d95ba2e16
+vendor/lib64/egl/libq3dtools_esx.so|c2f5d813068b271439bb6fa4e360235ad9c9cbfa
+vendor/lib64/libCB.so|617d7a0dfcb92857417dbd8ce1ad9dd710a4b375
+vendor/lib64/libadreno_utils.so|e830e04946f99e8dd5f4177d9079cc12566fc23a
+vendor/lib64/libgpudataproducer.so|a7841c98006ef831660e31968e4e946429852638
+vendor/lib64/libgsl.so|c128a513b904e77bb8a02021a15e6ce589d1e9ac
+vendor/lib64/libkcl.so|8744ec4bb075298c2dcf191110d26babaf949120
+vendor/lib64/libkernelmanager.so|ac6ec24e873cd8ad135c67072cc7d127a594b571
+vendor/lib64/libllvm-glnext.so|54de18ea1f8fd7319c43eb0c0a64d2f46efa3625
+vendor/lib64/libllvm-qcom.so|e8f013019aa86d6b0083771d77a2182da3cafd6e
+vendor/lib64/libllvm-qgl.so|1f40852532a3104c4b7623990e471937c7ab5f2a
 
-# Graphics (Vulkan)
-vendor/lib64/hw/vulkan.adreno.so
+# Graphics (Adreno)
+vendor/lib64/libOpenCL.so
+vendor/lib64/libgralloc_helper.unifunc.so
+
+# Graphics (Vulkan) - from Adreno 762.40
+vendor/lib64/hw/vulkan.adreno.so|733bad5c6ae0ce14d9351a20210bda3a1b86f6de
 
 # Hermes
 vendor/bin/hermesd
