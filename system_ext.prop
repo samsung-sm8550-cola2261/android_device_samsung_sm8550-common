@@ -1,6 +1,9 @@
 # Audio
 ro.audio.ihaladaptervendorextension_enabled=true
 
+# Charger
+ro.charger.enable_suspend=1
+
 # CNE
 persist.vendor.cne.feature=1
 
