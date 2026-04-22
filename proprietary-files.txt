@@ -914,7 +914,7 @@ vendor/lib64/libspl.so
 vendor/lib64/libssd.so
 vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
 
-# RIL - from dm1qxxx-user 15 AP3A.240905.015.A2 S911BXXS8DYG5 release-keys
+# RIL - from dm2qxxx-user 15 AP3A.240905.015.A2 S916BXXS8DYI3 release-keys
 vendor/bin/hw/rild|b4e84db4ab705dd2689424d65ba06f74156e3ada
 vendor/bin/ipacm-diag|c6ad8ea20381c29a4bcf8e01adb495ec9c64868e
 vendor/bin/ks|8836c8519bd0eb5d891e314aa2722af5fb1e980a
