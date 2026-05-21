@@ -80,7 +80,8 @@ BOARD_KERNEL_CMDLINE := \
     androidboot.usbcontroller=a600000.dwc3 \
     printk.devkmsg=on \
     firmware_class.path=/vendor/firmware_mnt/image \
-    video=vfb:640x400,bpp=32,memsize=3072000
+    video=vfb:640x400,bpp=32,memsize=3072000 \
+    nospectre_bhb
 
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_IMAGE_NAME := Image
