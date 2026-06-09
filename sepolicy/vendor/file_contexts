@@ -61,6 +61,10 @@
 # Goodix fingerprint device
 /dev/goodix_fp                               u:object_r:goodix_fingerprint_device:s0
 
+# Thermal
+/data/vendor/thermal(/.*)?                   u:object_r:thermal_vendor_data_file:s0
+/dev/thermal(/.*)?                           u:object_r:thermal_link_device:s0
+
 # Touchscreen
 /sys/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a90000.spi/spi_master/spi[0-9]/spi[0-9].[0-9]/wakeup(/.*)? u:object_r:sysfs_wakeup:s0
 
@@ -84,9 +88,11 @@
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch-service\.samsung(-foldable)?                           u:object_r:hal_lineage_touch_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.powershare-service\.samsung                                  u:object_r:hal_lineage_powershare_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.secure_element@1\.2-service                                u:object_r:hal_secure_element_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.thermal-service\.pixel                                     u:object_r:hal_thermal_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator-service\.samsung                                  u:object_r:hal_vibrator_default_exec:s0
 /(vendor|system/vendor)/bin/hw/.android\.hardware\.nfc-service.nxp                                           u:object_r:hal_nfc_default_exec:s0
 /(vendor|system/vendor)/bin/hw/sehradiomanager                                                               u:object_r:sehradiomanager_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.samsung\.hardware\.camera\.provider-service_64                        u:object_r:hal_camera_default_exec:s0
 /(vendor|system/vendor)/bin/secril_config_svc                                                                u:object_r:vendor_secril_config_svc_exec:s0
 /(vendor|system/vendor)/bin/hw/macloader                                                                     u:object_r:macloader_exec:s0
+/(vendor|system/vendor)/bin/thermal_symlinks                                                                 u:object_r:init-thermal-symlinks-sh_exec:s0
