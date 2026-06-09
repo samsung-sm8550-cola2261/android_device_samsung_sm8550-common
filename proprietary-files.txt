@@ -1049,11 +1049,7 @@ vendor/etc/init/vendor.qti.tftp.rc
 # Thermal engine
 vendor/bin/thermal-engine-v2
 vendor/etc/init/init_thermal-engine-v2.rc
-vendor/etc/init/vendor.samsung.hardware.thermal@1.0-service.rc
 vendor/etc/thermal-engine.conf
-vendor/etc/vintf/manifest/vendor.samsung.hardware.thermal@1.0-manifest.xml
-vendor/lib64/libthermalclient.so
-vendor/lib64/vendor.samsung.hardware.thermal@1.0.so
 
 # Time services
 vendor/app/TimeService/TimeService.apk
