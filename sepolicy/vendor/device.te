@@ -11,5 +11,8 @@ type k250a_device, dev_type;
 # Radio Device
 type drb_device, dev_type;
 
+# Thermal
+type thermal_link_device, dev_type;
+
 # Goodix fingerprint device
 type goodix_fingerprint_device, dev_type;

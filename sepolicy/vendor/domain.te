@@ -1,0 +1,2 @@
+# Thermal
+r_dir_file({domain - isolated_app_all}, sysfs_thermal)

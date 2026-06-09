@@ -619,3 +619,6 @@ subsystem mem_buf_vm
 
 # IPA Events
 /dev/ipa_events         0660   radio      radio
+
+# Thermal
+/sys/class/thermal/cooling_device*  cur_state   0664    root    system

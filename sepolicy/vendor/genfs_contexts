@@ -115,6 +115,9 @@ genfscon sysfs "/devices/virtual/sec/sec-cp-thermistor"                       u:
 genfscon sysfs "/devices/virtual/sec/sec-pa-thermistor"                       u:object_r:vendor_sysfs_thermal:s0
 genfscon sysfs "/devices/virtual/sec/sec-wf-thermistor"                       u:object_r:vendor_sysfs_thermal:s0
 
+genfscon sysfs "/class/powercap"                                              u:object_r:sysfs_thermal:s0
+genfscon sysfs "/devices/virtual/powercap"                                    u:object_r:sysfs_thermal:s0
+
 # Touchscreen
 genfscon sysfs "/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a90000.spi/spi_master/spi" u:object_r:vendor_sysfs_touchscreen:s0
 genfscon sysfs "/devices/virtual/sec/tsp"                                                    u:object_r:vendor_sysfs_touchscreen:s0

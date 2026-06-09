@@ -48,6 +48,7 @@ type vendor_qms_other_data_file, file_type, data_file_type;
 type vendor_sysfs_sensors_writable, fs_type, sysfs_type;
 
 # Thermal
+type thermal_vendor_data_file, file_type, data_file_type;
 type vendor_sysfs_thermal, fs_type, sysfs_type;
 
 # Touchscreen
