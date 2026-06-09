@@ -6,6 +6,3 @@ vendor.samsung.hardware.bluetooth::ISehBluetooth                                
 
 # NFC
 vendor.samsung.hardware.nfc::ISehNfc                                                    u:object_r:hal_nfc_hwservice:s0
-
-# Thermal
-vendor.samsung.hardware.thermal::ISehThermal                                            u:object_r:hal_thermal_samsung_hwservice:s0

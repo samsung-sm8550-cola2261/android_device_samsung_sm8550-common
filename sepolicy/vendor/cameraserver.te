@@ -1,2 +1,0 @@
-# Allow cameraserver to call hal_thermal_default
-binder_call(cameraserver, hal_thermal_default)

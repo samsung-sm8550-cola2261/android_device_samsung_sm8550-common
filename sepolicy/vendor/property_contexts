@@ -17,10 +17,6 @@ vendor.seHal.init       u:object_r:vendor_sehal_init_prop:s0
 # Tee
 vendor.sys.qseecomd.    u:object_r:vendor_qseecomd_prop:s0
 
-# Thermal
-vendor.thermal.          u:object_r:vendor_thermal_prop:s0
-vendor.thermal.amb.      u:object_r:vendor_thermal_test_prop:s0
-
 # Wi-Fi
 vendor.wifi.            u:object_r:vendor_wifi_prop:s0
 ro.vendor.wifi.         u:object_r:vendor_wifi_prop:s0
