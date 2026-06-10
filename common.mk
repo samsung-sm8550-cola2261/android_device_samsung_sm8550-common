@@ -313,6 +313,14 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr \
     libqti-perfd-client
 
+ifneq ($(filter $(TARGET_DEVICE),b5q q5q),)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/power/powerhint_foldable.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+else
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+endif
+
 # PowerShare
 PRODUCT_PACKAGES += \
     vendor.lineage.powershare-service.samsung
