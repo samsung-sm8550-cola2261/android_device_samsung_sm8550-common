@@ -20,6 +20,7 @@
 #include "core/default/Util.h"
 
 #include <cutils/properties.h>
+#include <unistd.h>
 #include <string.h>
 
 #if MAJOR_VERSION >= 4
@@ -226,7 +227,15 @@ Return<Result> PrimaryDevice::setMode(AudioMode mode) {
 
     // Wait until one sim slot reports a call
     if (mode == AudioMode::IN_CALL) {
-        while (strcmp(simSlot1, "0") == 0 && strcmp(simSlot2, "0") == 0) {
+        static constexpr int kSamsungCallSlotWaitAttempts = 50;
+        static constexpr useconds_t kSamsungCallSlotWaitSleepUs = 10 * 1000;
+
+        for (int attempt = 0;
+             attempt < kSamsungCallSlotWaitAttempts &&
+                     strcmp(simSlot1, "0") == 0 &&
+                     strcmp(simSlot2, "0") == 0;
+             ++attempt) {
+            usleep(kSamsungCallSlotWaitSleepUs);
             property_get("vendor.calls.slot_id0", simSlot1, "");
             property_get("vendor.calls.slot_id1", simSlot2, "");
         }
@@ -238,6 +247,9 @@ Return<Result> PrimaryDevice::setMode(AudioMode mode) {
     } else if (strcmp(simSlot2, "1") == 0) {
         // SIM2
         mDevice->halSetParameters("g_call_sim_slot=0x02");
+    } else if (mode == AudioMode::IN_CALL) {
+        ALOGW("Timed out waiting for vendor.calls.slot_id* during IN_CALL; "
+              "continuing without changing g_call_sim_slot");
     }
 
     // INVALID, CURRENT, CNT, MAX are reserved for internal use.
