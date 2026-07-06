@@ -154,6 +154,10 @@ on boot
     # permissions for charging
     chown system radio /sys/class/power_supply/battery/charging_enabled
 
+    # ueventd can still miss this late-created MUIC sysfs node
+    chown system radio /sys/class/sec/switch/afc_disable
+    chmod 0664 /sys/class/sec/switch/afc_disable
+
 on charger
     restart vendor.charger
 
