@@ -52,7 +52,8 @@ struct StreamOut : public IStreamOut {
     typedef MessageQueue<uint8_t, kSynchronizedReadWrite> DataMQ;
     typedef MessageQueue<WriteStatus, kSynchronizedReadWrite> StatusMQ;
 
-    StreamOut(const sp<Device>& device, audio_stream_out_t* stream);
+    StreamOut(const sp<Device>& device, audio_stream_out_t* stream,
+              audio_output_flags_t flags);
 
     // Methods from ::android::hardware::audio::CPP_VERSION::IStream follow.
     Return<uint64_t> getFrameSize() override;
@@ -164,6 +165,7 @@ struct StreamOut : public IStreamOut {
 
     const sp<Device> mDevice;
     audio_stream_out_t* mStream;
+    const audio_output_flags_t mFlags;
     const sp<Stream> mStreamCommon;
     const sp<StreamMmap<audio_stream_out_t>> mStreamMmap;
     mediautils::atomic_sp<IStreamOutCallback> mCallback;  // for non-blocking write and drain

@@ -182,7 +182,7 @@ std::tuple<Result, sp<IStreamOut>> Device::openOutputStreamCore(int32_t ioHandle
     ALOGV("open_output_stream status %d stream %p", status, halStream);
     sp<IStreamOut> streamOut;
     if (status == OK) {
-        streamOut = new StreamOut(this, halStream);
+        streamOut = new StreamOut(this, halStream, halFlags);
         ++mOpenedStreamsCount;
         android::hardware::setMinSchedulerPolicy(streamOut, SCHED_NORMAL, ANDROID_PRIORITY_AUDIO);
     }

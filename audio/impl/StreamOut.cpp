@@ -148,9 +148,11 @@ bool WriteThread::threadLoop() {
 
 }  // namespace
 
-StreamOut::StreamOut(const sp<Device>& device, audio_stream_out_t* stream)
+StreamOut::StreamOut(const sp<Device>& device, audio_stream_out_t* stream,
+                     audio_output_flags_t flags)
     : mDevice(device),
       mStream(stream),
+      mFlags(flags),
       mStreamCommon(new Stream(false /*isInput*/, &stream->common)),
       mStreamMmap(new StreamMmap<audio_stream_out_t>(stream)),
       mEfGroup(nullptr),
@@ -335,6 +337,9 @@ Return<uint32_t> StreamOut::getLatency() {
 }
 
 Return<Result> StreamOut::setVolume(float left, float right) {
+    if ((mFlags & AUDIO_OUTPUT_FLAG_VOIP_RX) != 0) {
+        return Result::NOT_SUPPORTED;
+    }
     if (mStream->set_volume == NULL) {
         return Result::NOT_SUPPORTED;
     }
