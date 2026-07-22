@@ -36,14 +36,14 @@
 
     <!-- IWLAN data service package name to bind to by default. If none is specified in an overlay,
          an empty string is passed in -->
-    <string name="config_wlan_data_service_package" translatable="false">vendor.qti.iwlan</string>
+    <string name="config_wlan_data_service_package" translatable="false">com.google.android.iwlan</string>
 
     <!-- IWLAN network service package name to bind to by default. If none is specified in an
          overlay, an empty string is passed in -->
-    <string name="config_wlan_network_service_package" translatable="false">vendor.qti.iwlan</string>
+    <string name="config_wlan_network_service_package" translatable="false">com.google.android.iwlan</string>
 
     <!-- Telephony qualified networks service package name to bind to by default. -->
-    <string name="config_qualified_networks_service_package" translatable="false">vendor.qti.iwlan</string>
+    <string name="config_qualified_networks_service_package" translatable="false">com.android.telephony.qns</string>
 
     <!-- Whether enhanced IWLAN handover check is enabled. If enabled, telephony frameworks
          will not perform handover if the target transport is out of service, or VoPS not

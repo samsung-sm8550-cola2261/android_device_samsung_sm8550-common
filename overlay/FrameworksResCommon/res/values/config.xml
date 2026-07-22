@@ -338,6 +338,15 @@
     <!-- Flag specifying whether WFC over IMS is available on device -->
     <bool name="config_device_wfc_ims_available">true</bool>
 
+    <!-- Use the audio mode expected by the OSS VoIP path for IMS calls. -->
+    <bool name="config_use_voip_mode_for_ims">true</bool>
+
+    <!-- Keep serving-cell identity available to the system IMS stack. -->
+    <string-array name="config_serviceStateLocationAllowedPackages">
+        <item>com.android.phone</item>
+        <item>com.android.imsstack</item>
+    </string-array>
+
     <!-- Config determines whether to update phone object when voice registration
          state changes. Voice radio tech change will always trigger an update of
          phone object irrespective of this config -->
