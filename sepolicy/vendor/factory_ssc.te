@@ -7,6 +7,8 @@ allow factory_ssc self:netlink_socket { bind create read write };
 allow factory_ssc factory_ssc:qipcrtr_socket create_socket_perms_no_ioctl;
 allow factory_ssc property_socket:sock_file { append getattr ioctl read write };
 
+get_prop(factory_ssc, hwservicemanager_prop)
+
 # Allow factory_ssc to read/write app_efs_file
 allow factory_ssc app_efs_file:dir create_dir_perms;
 allow factory_ssc app_efs_file:file create_file_perms;
