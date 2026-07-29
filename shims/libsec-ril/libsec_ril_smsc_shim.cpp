@@ -14,6 +14,7 @@
 
 #include <dlfcn.h>
 #include <pthread.h>
+#include <time.h>
 #include <unistd.h>
 
 #include <atomic>
@@ -569,6 +570,10 @@ static bool slotTypeIsEsim() {
     return propEquals(kSimSlotType2, "1");
 }
 
+static bool slotTypeIsPsim() {
+    return !slotTypeIsEsim();
+}
+
 static void setEsimReady(bool ready) {
     __system_property_set(kEsimReadyProp, ready ? "1" : "0");
     ALOGI("%s=%s (type2=%s)",
@@ -585,6 +590,22 @@ static bool waitFor(bool (*pred)(), int timeoutMs) {
         usleep(stepMs * 1000);
     }
     return pred();
+}
+
+// OEM often completes with SUCCESS before ril.simslottype2 updates; the type
+// usually lands only after follow-up + SIM pulse. Don't burn 10s waiting.
+static constexpr int kTypeWaitAfterOemMs = 1500;
+static constexpr int kTypeWaitAfterPulseMs = 8000;
+
+static void pulseEuiccSim(char wantProp) {
+    dbg("sim2-pulse");
+    fireRadioPower(1, 5000, kEuiccSocket);
+    fireSimCardPower(0, 3000, kEuiccSocket);
+    usleep(100 * 1000);
+    if (!switchPropIs(wantProp)) {
+        return;
+    }
+    fireSimCardPower(1, 8000, kEuiccSocket);
 }
 
 static void runEsimEnable() {
@@ -608,7 +629,9 @@ static void runEsimEnable() {
         return;
     }
 
-    waitFor(slotTypeIsEsim, 10000);
+    if (!waitFor(slotTypeIsEsim, kTypeWaitAfterOemMs)) {
+        dbg("type-slow");
+    }
 
     if (!switchPropIs('1')) {
         dbg("enable-aborted");
@@ -616,7 +639,7 @@ static void runEsimEnable() {
     }
 
     // Soft follow-up used by stock ExecuteSlotSwitch path.
-    usleep(500 * 1000);
+    usleep(100 * 1000);
     fireOemType(kOemTypeFollowUp, 5000);
 
     if (!switchPropIs('1')) {
@@ -632,13 +655,8 @@ static void runEsimEnable() {
         return;
     }
 
-    dbg("sim2-pulse");
-    fireRadioPower(1, 5000, kEuiccSocket);
-    fireSimCardPower(0, 3000, kEuiccSocket);
-    usleep(500 * 1000);
-    if (!switchPropIs('1')) return;
-    fireSimCardPower(1, 8000, kEuiccSocket);
-    waitFor(slotTypeIsEsim, 8000);
+    pulseEuiccSim('1');
+    waitFor(slotTypeIsEsim, kTypeWaitAfterPulseMs);
 
     const bool ready = slotTypeIsEsim();
     setEsimReady(ready);
@@ -648,12 +666,45 @@ static void runEsimEnable() {
 static void runEsimDisable() {
     setEsimReady(false);
     dbg("disable-start");
-    if (slotTypeIsEsim()) {
-        fireOemType(kOemTypePsim, 10000);
-        waitFor([] {
-            return !slotTypeIsEsim();
-        }, 10000);
+
+    if (!slotTypeIsEsim()) {
+        dbg("already-psim");
+        dbg("disable-ok");
+        return;
     }
+
+    if (!fireOemType(kOemTypePsim, 10000)) {
+        ALOGW("initial pSIM OEM failed/timed out; still waiting for type");
+    }
+    if (!switchPropIs('0')) {
+        dbg("disable-aborted");
+        return;
+    }
+
+    if (!waitFor(slotTypeIsPsim, kTypeWaitAfterOemMs)) {
+        dbg("type-slow");
+    }
+
+    if (!switchPropIs('0')) {
+        dbg("disable-aborted");
+        return;
+    }
+
+    usleep(100 * 1000);
+    fireOemType(kOemTypeFollowUp, 5000);
+
+    if (!switchPropIs('0')) {
+        dbg("disable-aborted");
+        return;
+    }
+
+    if (slotTypeIsPsim()) {
+        dbg("disable-ok");
+        return;
+    }
+
+    pulseEuiccSim('0');
+    waitFor(slotTypeIsPsim, kTypeWaitAfterPulseMs);
     dbg(slotTypeIsEsim() ? "disable-fail" : "disable-ok");
 }
 
@@ -751,6 +802,21 @@ static void applyEsimSwitchValue(const char* value) {
     }
 }
 
+static void waitForSwitchPropChange(int timeoutMs) {
+    const prop_info* pi = __system_property_find(kEsimSwitchProp);
+    if (pi == nullptr) {
+        usleep(static_cast<useconds_t>(timeoutMs) * 1000);
+        return;
+    }
+    const uint32_t serial = __system_property_serial(pi);
+    struct timespec ts = {
+            .tv_sec = timeoutMs / 1000,
+            .tv_nsec = (timeoutMs % 1000) * 1000000L,
+    };
+    uint32_t newSerial = serial;
+    __system_property_wait(pi, serial, &newSerial, &ts);
+}
+
 static void* esimSwitchWatcher(void*) {
     char prev[PROP_VALUE_MAX] = {};
 
@@ -764,7 +830,7 @@ static void* esimSwitchWatcher(void*) {
     if (prev[0] != '\0') {
         dbg(prev[0] == '1' ? "boot-enable" : "boot-disable");
         applyEsimSwitchValue(prev);
-        dbg(slotTypeIsEsim() ? "boot-ready" : "boot-not-ready");
+        dbg(slotTypeIsEsim() ? "boot-esim" : "boot-psim");
     }
 
     while (true) {
@@ -775,15 +841,21 @@ static void* esimSwitchWatcher(void*) {
             ALOGI("%s changed '%s' -> '%s'", kEsimSwitchProp, prev, cur);
             std::strncpy(prev, cur, sizeof(prev) - 1);
             prev[sizeof(prev) - 1] = '\0';
-            dbg(cur[0] == '1' ? "apply-enable" : "apply-disable");
+            dbg(cur[0] == '1' ? "apply-esim" : "apply-psim");
             applyEsimSwitchValue(cur);
-            dbg(slotTypeIsEsim() ? "apply-ready" : "apply-not-ready");
+            dbg(slotTypeIsEsim() ? "apply-esim-done" : "apply-psim-done");
         } else if (cur[0] == '1' && cur[1] == '\0' && !slotTypeIsEsim()) {
-            // Persist wants eSIM but type flipped back — one recovery attempt
-            // every 30s, not a tight thrash loop.
+            // Persist wants eSIM but type flipped back — throttled recover.
             dbg("recover-enable");
             runEsimEnable();
             dbg(slotTypeIsEsim() ? "recover-ok" : "recover-fail");
+            usleep(30 * 1000 * 1000);
+            continue;
+        } else if (cur[0] == '0' && cur[1] == '\0' && slotTypeIsEsim()) {
+            // Persist wants pSIM but type stuck on eSIM — throttled recover.
+            dbg("recover-disable");
+            runEsimDisable();
+            dbg(slotTypeIsEsim() ? "recover-fail" : "recover-ok");
             usleep(30 * 1000 * 1000);
             continue;
         } else if (cur[0] == '1' && cur[1] == '\0' && slotTypeIsEsim()
@@ -792,7 +864,8 @@ static void* esimSwitchWatcher(void*) {
             dbg("ready-latched");
         }
 
-        usleep(500 * 1000);
+        // Wake immediately on prop change; 1s bound keeps recover checks alive.
+        waitForSwitchPropChange(1000);
     }
     return nullptr;
 }
