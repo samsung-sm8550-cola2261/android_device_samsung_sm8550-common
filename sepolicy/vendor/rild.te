@@ -42,4 +42,7 @@ r_dir_file(rild, hal_camera_default)
 set_prop(rild, vendor_data_ko_prop)
 set_prop(rild, vendor_data_shsusr_prop)
 
+# SamsungEsimSwitcher → vendor.calls.esim_switch (libsec-ril shim)
+get_prop(rild, vendor_radio_prop)
+
 dontaudit rild { default_prop system_prop }:file { read open getattr map };
