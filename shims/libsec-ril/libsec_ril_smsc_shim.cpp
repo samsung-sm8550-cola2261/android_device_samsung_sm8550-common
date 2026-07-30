@@ -399,9 +399,9 @@ static bool isGetEidApdu(int request, void* data, size_t datalen) {
     if (apdu->data == nullptr) {
         return false;
     }
-    // Expected: BF3E035C015A (GetEuiccData requesting EID tag 5A)
-    return std::strstr(apdu->data, "BF3E") != nullptr
-            && std::strstr(apdu->data, "5A") != nullptr;
+    // Exact GetEuiccData/GetEID only — never match BPP/STORE DATA payloads that
+    // happen to contain the hex substrings "BF3E" / "5A".
+    return std::strcmp(apdu->data, "BF3E035C015A") == 0;
 }
 
 // Synthesize a successful GetEID ES10 response: BF3E12 5A10 <16-byte EID>
