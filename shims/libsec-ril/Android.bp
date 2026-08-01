@@ -2,7 +2,7 @@ cc_library_shared {
     name: "libsec-ril",
     vendor: true,
     compile_multilib: "64",
-    srcs: ["libsec_ril_smsc_shim.cpp"],
+    srcs: ["libsec_ril_shim.cpp"],
     cflags: [
         "-Wall",
         "-Wextra",

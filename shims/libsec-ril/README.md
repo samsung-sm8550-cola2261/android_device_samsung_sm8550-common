@@ -8,7 +8,7 @@ the stock library name so `rild` loads the shim first.
 
 | File | Role |
 |------|------|
-| `libsec_ril_smsc_shim.cpp` | All shim logic |
+| `libsec_ril_shim.cpp` | All shim logic |
 | `Android.bp` | Builds `libsec-ril` (`vendor`, 64-bit) wrapping `libsec-ril-impl.so` |
 
 Related pieces outside this directory:
