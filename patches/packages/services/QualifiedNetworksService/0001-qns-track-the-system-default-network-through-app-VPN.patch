@@ -1,0 +1,65 @@
+From 2d1c96140eeef2fdb4dac7dcf732565db532d25f Mon Sep 17 00:00:00 2001
+From: Mathias Gluszczynski <admin@krazey.de>
+Date: Wed, 22 Jul 2026 21:05:00 +0200
+Subject: [PATCH] qns: track the system default network through app VPNs
+
+QNS classifies Wi-Fi as IPv4, IPv6, or dual stack from its default
+network callback. An always-on non-bypassable VPN can become the
+process default before QNS sees the physical Wi-Fi network, leaving the
+link protocol UNKNOWN and incorrectly blocking IWLAN.
+
+Register a system-default callback instead so QNS observes the physical
+network selected by ConnectivityService rather than an app-scoped VPN.
+Declare the signature permission required by that callback and update
+the callback registration test.
+
+Change-Id: I9168d3daf2d308b45d74eb9d82ed4125c66c6d60
+---
+ AndroidManifest.xml                                           | 1 +
+ src/com/android/telephony/qns/IwlanNetworkStatusTracker.java  | 4 +++-
+ .../android/telephony/qns/IwlanNetworkStatusTrackerTest.java  | 2 +-
+ 3 files changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index 5abdbf9..cabb8b1 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -22,6 +22,7 @@
+   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+   <uses-permission android:name="android.permission.INTERNET" />
+   <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
++  <uses-permission android:name="android.permission.NETWORK_SETTINGS" />
+   <uses-permission android:name="android.permission.NETWORK_SIGNAL_STRENGTH_WAKEUP" />
+   <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+   <uses-permission android:name="android.permission.READ_PRECISE_PHONE_STATE" />
+diff --git a/src/com/android/telephony/qns/IwlanNetworkStatusTracker.java b/src/com/android/telephony/qns/IwlanNetworkStatusTracker.java
+index cef9690..7293f58 100644
+--- a/src/com/android/telephony/qns/IwlanNetworkStatusTracker.java
++++ b/src/com/android/telephony/qns/IwlanNetworkStatusTracker.java
+@@ -253,7 +253,9 @@ class IwlanNetworkStatusTracker {
+     private void registerDefaultNetworkCb() {
+         if (mDefaultNetworkCallback == null) {
+             mDefaultNetworkCallback = new DefaultNetworkCallback();
+-            mConnectivityManager.registerDefaultNetworkCallback(
++            // The app default can be an always-on VPN. IWLAN qualification needs the
++            // underlying system default so Wi-Fi link properties remain visible.
++            mConnectivityManager.registerSystemDefaultNetworkCallback(
+                     mDefaultNetworkCallback, mNetCbHandler);
+         }
+     }
+diff --git a/tests/src/com/android/telephony/qns/IwlanNetworkStatusTrackerTest.java b/tests/src/com/android/telephony/qns/IwlanNetworkStatusTrackerTest.java
+index 801411f..afc9432 100644
+--- a/tests/src/com/android/telephony/qns/IwlanNetworkStatusTrackerTest.java
++++ b/tests/src/com/android/telephony/qns/IwlanNetworkStatusTrackerTest.java
+@@ -256,7 +256,7 @@ public class IwlanNetworkStatusTrackerTest extends QnsTest {
+         ArgumentCaptor<ConnectivityManager.NetworkCallback> callbackArg =
+                 ArgumentCaptor.forClass(ConnectivityManager.NetworkCallback.class);
+         verify(mMockConnectivityManager, atLeastOnce())
+-                .registerDefaultNetworkCallback(callbackArg.capture(), isA(Handler.class));
++                .registerSystemDefaultNetworkCallback(callbackArg.capture(), isA(Handler.class));
+         ConnectivityManager.NetworkCallback networkCallback = callbackArg.getValue();
+         assertNotNull(networkCallback);
+         return networkCallback;
+-- 
+2.43.0
+
