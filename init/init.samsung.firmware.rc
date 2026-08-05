@@ -12,6 +12,18 @@ on fs && property:ro.boot.em.model=SM-S911B
     mount none vendor/firmware/evass.mdt /odm/firmware/evass.mdt bind
     mount none vendor/firmware/vpu30_4v.mbn /odm/firmware/vpu30_4v.mbn bind
 
+on fs && property:ro.boot.em.model=SM-S911N
+    mount none vendor/firmware/CAMERA_ICP-kor.b20 /odm/firmware/CAMERA_ICP.b20  bind
+    mount none vendor/firmware/CAMERA_ICP-kor.mbn /odm/firmware/CAMERA_ICP.mbn bind
+    mount none vendor/firmware/CAMERA_ICP-kor.mdt /odm/firmware/CAMERA_ICP.mdt bind
+    mount none vendor/firmware/a740_zap-kor.b02 /odm/firmware/a740_zap.b02 bind
+    mount none vendor/firmware/a740_zap-kor.mbn /odm/firmware/a740_zap.mbn bind
+    mount none vendor/firmware/a740_zap-kor.mdt /odm/firmware/a740_zap.mdt bind
+    mount none vendor/firmware/evass-kor.b19 /odm/firmware/evass.b19 bind
+    mount none vendor/firmware/evass-kor.mbn /odm/firmware/evass.mbn bind
+    mount none vendor/firmware/evass-kor.mdt /odm/firmware/evass.mdt bind
+    mount none vendor/firmware/vpu30_4v-kor.mbn /odm/firmware/vpu30_4v.mbn bind
+
 on fs && property:ro.boot.em.model=SM-S916B
     mount none vendor/firmware/CAMERA_ICP.b20 /odm/firmware/CAMERA_ICP.b20  bind
     mount none vendor/firmware/CAMERA_ICP.mbn /odm/firmware/CAMERA_ICP.mbn bind
@@ -24,6 +36,18 @@ on fs && property:ro.boot.em.model=SM-S916B
     mount none vendor/firmware/evass.mdt /odm/firmware/evass.mdt bind
     mount none vendor/firmware/vpu30_4v.mbn /odm/firmware/vpu30_4v.mbn bind
 
+on fs && property:ro.boot.em.model=SM-S916N
+    mount none vendor/firmware/CAMERA_ICP-kor.b20 /odm/firmware/CAMERA_ICP.b20  bind
+    mount none vendor/firmware/CAMERA_ICP-kor.mbn /odm/firmware/CAMERA_ICP.mbn bind
+    mount none vendor/firmware/CAMERA_ICP-kor.mdt /odm/firmware/CAMERA_ICP.mdt bind
+    mount none vendor/firmware/a740_zap-kor.b02 /odm/firmware/a740_zap.b02 bind
+    mount none vendor/firmware/a740_zap-kor.mbn /odm/firmware/a740_zap.mbn bind
+    mount none vendor/firmware/a740_zap-kor.mdt /odm/firmware/a740_zap.mdt bind
+    mount none vendor/firmware/evass-kor.b19 /odm/firmware/evass.b19 bind
+    mount none vendor/firmware/evass-kor.mbn /odm/firmware/evass.mbn bind
+    mount none vendor/firmware/evass-kor.mdt /odm/firmware/evass.mdt bind
+    mount none vendor/firmware/vpu30_4v-kor.mbn /odm/firmware/vpu30_4v.mbn bind
+
 on fs && property:ro.boot.em.model=SM-S918B
     mount none vendor/firmware/CAMERA_ICP.b20 /odm/firmware/CAMERA_ICP.b20  bind
     mount none vendor/firmware/CAMERA_ICP.mbn /odm/firmware/CAMERA_ICP.mbn bind
@@ -35,6 +59,18 @@ on fs && property:ro.boot.em.model=SM-S918B
     mount none vendor/firmware/evass.mbn /odm/firmware/evass.mbn bind
     mount none vendor/firmware/evass.mdt /odm/firmware/evass.mdt bind
     mount none vendor/firmware/vpu30_4v.mbn /odm/firmware/vpu30_4v.mbn bind
+
+on fs && property:ro.boot.em.model=SM-S918N
+    mount none vendor/firmware/CAMERA_ICP-kor.b20 /odm/firmware/CAMERA_ICP.b20  bind
+    mount none vendor/firmware/CAMERA_ICP-kor.mbn /odm/firmware/CAMERA_ICP.mbn bind
+    mount none vendor/firmware/CAMERA_ICP-kor.mdt /odm/firmware/CAMERA_ICP.mdt bind
+    mount none vendor/firmware/a740_zap-kor.b02 /odm/firmware/a740_zap.b02 bind
+    mount none vendor/firmware/a740_zap-kor.mbn /odm/firmware/a740_zap.mbn bind
+    mount none vendor/firmware/a740_zap-kor.mdt /odm/firmware/a740_zap.mdt bind
+    mount none vendor/firmware/evass-kor.b19 /odm/firmware/evass.b19 bind
+    mount none vendor/firmware/evass-kor.mbn /odm/firmware/evass.mbn bind
+    mount none vendor/firmware/evass-kor.mdt /odm/firmware/evass.mdt bind
+    mount none vendor/firmware/vpu30_4v-kor.mbn /odm/firmware/vpu30_4v.mbn bind
 
 on fs && property:ro.boot.em.model=SM-F946B
     mount none vendor/firmware/CAMERA_ICP.b20 /odm/firmware/CAMERA_ICP.b20  bind
