@@ -1,10 +1,5 @@
 [
   {
-    "repository": "hardware_dolby",
-    "target_path": "hardware/dolby",
-    "branch": "bka"
-  },
-  {
     "repository": "hardware_samsung",
     "target_path": "hardware/samsung",
     "branch": "bka"
@@ -28,5 +23,23 @@
     "repository": "vendor_samsung_sm8550-common",
     "target_path": "vendor/samsung/sm8550-common",
     "branch": "bka"
+  },
+  {
+    "remote": "github-non-los",
+    "repository": "samsung-sm8550-cola2261/android_hardware_dolby",
+    "target_path": "hardware/dolby",
+    "branch": "evox/bka"
+  },
+  {
+    "remote": "github-non-los",
+    "repository": "samsung-sm8550-cola2261/ImsStack",
+    "target_path": "packages/modules/ImsStack",
+    "branch": "main"
+  },
+  {
+    "remote": "github-non-los",
+    "repository": "samsung-sm8550-cola2261/imsstack-carrier-config-ext",
+    "target_path": "vendor/lineage/imsstack-carrier-config-ext",
+    "branch": "main"
   }
 ]
