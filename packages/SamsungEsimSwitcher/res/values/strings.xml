@@ -12,7 +12,7 @@
     <string name="esim_psim_slot_title">Physical SIM in hybrid slot</string>
     <string name="esim_psim_slot_message">A physical SIM is in the hybrid tray (slot 1). Move it to the other slot to keep using it, or proceed to disconnect that SIM and enable eSIM.</string>
     <string name="esim_psim_slot_proceed">Enable eSIM</string>
-    <string name="esim_footer_note">Enabling eSIM switches the hybrid SIM tray slot to the built-in eUICC (tsds2). The physical SIM in that slot will be unavailable while eSIM is enabled.</string>
+    <string name="esim_footer_note">Enabling eSIM will disable the second physical SIM slot</string>
     <string name="esim_switching">Switching SIM slot…</string>
     <!-- Not used as a preference title in XML so Settings search does not index it. -->
     <string name="esim_switch_failed">Slot switch timed out. Wait a few seconds, toggle again if needed, then add your eSIM.</string>
