@@ -1,0 +1,192 @@
+From 1bfbe9bfe587e3fa04970c91f7b6bae2ddefb088 Mon Sep 17 00:00:00 2001
+From: cola2261 <cola2261@proton.me>
+Date: Sun, 12 Jul 2026 03:38:22 +0500
+Subject: [PATCH] Revert scheduler refresh rate stuff
+
+---
+ services/surfaceflinger/Layer.h               |  2 --
+ .../surfaceflinger/RefreshRateOverlay.cpp     | 16 +++++++--
+ .../surfaceflinger/Scheduler/LayerHistory.cpp |  4 ---
+ .../Scheduler/RefreshRateSelector.cpp         | 35 ++-----------------
+ .../surfaceflinger/Scheduler/Scheduler.cpp    | 34 ++++++++----------
+ 5 files changed, 29 insertions(+), 62 deletions(-)
+
+diff --git a/services/surfaceflinger/Layer.h b/services/surfaceflinger/Layer.h
+index 1ee5093f82..fff5e91f59 100644
+--- a/services/surfaceflinger/Layer.h
++++ b/services/surfaceflinger/Layer.h
+@@ -357,8 +357,6 @@ public:
+ 
+     virtual uid_t getOwnerUid() const { return mOwnerUid; }
+ 
+-    gui::WindowInfo::Type getWindowType() const { return mWindowType; }
+-
+     // Used to check if mUsedVsyncIdForRefreshRateSelection should be expired when it stop updating.
+     nsecs_t mMaxTimeForUseVsyncId = 0;
+     // True when DrawState.useVsyncIdForRefreshRateSelection previously set to true during updating
+diff --git a/services/surfaceflinger/RefreshRateOverlay.cpp b/services/surfaceflinger/RefreshRateOverlay.cpp
+index cc3a821a71..9fd1faf56b 100644
+--- a/services/surfaceflinger/RefreshRateOverlay.cpp
++++ b/services/surfaceflinger/RefreshRateOverlay.cpp
+@@ -25,10 +25,12 @@
+ 
+ namespace android {
+ 
+-auto RefreshRateOverlay::draw(int refreshRate, int renderFps, bool /*idle*/, SkColor color,
++auto RefreshRateOverlay::draw(int refreshRate, int renderFps, bool idle, SkColor color,
+                               ui::Transform::RotationFlags rotation, ftl::Flags<Features> features)
+         -> Buffers {
+     const size_t loopCount = features.test(Features::Spinner) ? 6 : 1;
++    const bool isSetByHwc = features.test(Features::SetByHwc);
++
+     Buffers buffers;
+     buffers.reserve(loopCount);
+ 
+@@ -67,7 +69,11 @@ auto RefreshRateOverlay::draw(int refreshRate, int renderFps, bool /*idle*/, SkC
+         canvas->setMatrix(canvasTransform);
+ 
+         int left = 0;
+-        drawNumber(refreshRate, left, color, *canvas);
++        if (idle && !isSetByHwc) {
++            drawDash(left, *canvas);
++        } else {
++            drawNumber(refreshRate, left, color, *canvas);
++        }
+         left += 3 * (kDigitWidth + kDigitSpace);
+         if (features.test(Features::Spinner)) {
+             switch (i) {
+@@ -100,7 +106,11 @@ auto RefreshRateOverlay::draw(int refreshRate, int renderFps, bool /*idle*/, SkC
+         left += kDigitWidth + kDigitSpace;
+ 
+         if (features.test(Features::RenderRate)) {
+-            drawNumber(renderFps, left, color, *canvas);
++            if (idle) {
++                drawDash(left, *canvas);
++            } else {
++                drawNumber(renderFps, left, color, *canvas);
++            }
+         }
+         left += 3 * (kDigitWidth + kDigitSpace);
+ 
+diff --git a/services/surfaceflinger/Scheduler/LayerHistory.cpp b/services/surfaceflinger/Scheduler/LayerHistory.cpp
+index b3a407a71c..ec486e5a38 100644
+--- a/services/surfaceflinger/Scheduler/LayerHistory.cpp
++++ b/services/surfaceflinger/Scheduler/LayerHistory.cpp
+@@ -376,10 +376,6 @@ void LayerHistory::partitionLayers(nsecs_t now) {
+                 }
+             }
+ 
+-            if (layerUnsafe->getWindowType() == gui::WindowInfo::Type::STATUS_BAR) {
+-                info->setLayerVote({LayerVoteType::NoVote, Fps()});
+-            }
+-
+             it++;
+         } else {
+             if (CC_UNLIKELY(mTraceEnabled)) {
+diff --git a/services/surfaceflinger/Scheduler/RefreshRateSelector.cpp b/services/surfaceflinger/Scheduler/RefreshRateSelector.cpp
+index ac3049d8ec..c2baf76cde 100644
+--- a/services/surfaceflinger/Scheduler/RefreshRateSelector.cpp
++++ b/services/surfaceflinger/Scheduler/RefreshRateSelector.cpp
+@@ -787,45 +787,14 @@ auto RefreshRateSelector::getRankedFrameRatesLocked(const std::vector<LayerRequi
+     if (!signals.touch && signals.idle &&
+         !(policy->primaryRangeIsSingleRate() && hasExplicitVoteLayers)) {
+         ALOGV("Idle");
+-        const auto idleAnchorGroup = activeMode.getGroup();
+-        auto idleBestMode = mPrimaryFrameRates.end();
+-        for (auto it = mPrimaryFrameRates.begin(); it != mPrimaryFrameRates.end(); ++it) {
+-            if (it->modePtr->getGroup() != idleAnchorGroup) continue;
+-            if (isStrictlyLess(it->fps, kMinSupportedFrameRate)) continue;
+-            if (idleBestMode == mPrimaryFrameRates.end() ||
+-                isStrictlyLess(it->fps, idleBestMode->fps)) {
+-                idleBestMode = it;
+-            }
+-        }
+-        FrameRateRanking ranking;
+-        if (idleBestMode != mPrimaryFrameRates.end()) {
+-            constexpr float kMaxScore = std::numeric_limits<float>::max();
+-            ranking.push_back(ScoredFrameRate{*idleBestMode, kMaxScore});
+-        } else {
+-            ranking = rankFrameRates(idleAnchorGroup, RefreshRateOrder::Ascending);
+-        }
++        const auto ranking = rankFrameRates(activeMode.getGroup(), RefreshRateOrder::Ascending);
+         SFTRACE_FORMAT_INSTANT("%s (Idle)", to_string(ranking.front().frameRateMode.fps).c_str());
+         return {ranking, GlobalSignals{.idle = true}};
+     }
+ 
+     if (layers.empty() || noVoteLayers == layers.size()) {
+         ALOGV("No layers with votes");
+-        auto noVoteBestMode = mPrimaryFrameRates.end();
+-        for (auto it = mPrimaryFrameRates.begin(); it != mPrimaryFrameRates.end(); ++it) {
+-            if (it->modePtr->getGroup() != anchorGroup) continue;
+-            if (isStrictlyLess(it->fps, kMinSupportedFrameRate)) continue;
+-            if (noVoteBestMode == mPrimaryFrameRates.end() ||
+-                isStrictlyLess(it->fps, noVoteBestMode->fps)) {
+-                noVoteBestMode = it;
+-            }
+-        }
+-        FrameRateRanking ranking;
+-        if (noVoteBestMode != mPrimaryFrameRates.end()) {
+-            constexpr float kMaxScore = std::numeric_limits<float>::max();
+-            ranking.push_back(ScoredFrameRate{*noVoteBestMode, kMaxScore});
+-        } else {
+-            ranking = rankFrameRates(anchorGroup, RefreshRateOrder::Descending);
+-        }
++        const auto ranking = rankFrameRates(anchorGroup, RefreshRateOrder::Descending);
+         SFTRACE_FORMAT_INSTANT("%s (No layers with votes)",
+                                to_string(ranking.front().frameRateMode.fps).c_str());
+         return {ranking, kNoSignals};
+diff --git a/services/surfaceflinger/Scheduler/Scheduler.cpp b/services/surfaceflinger/Scheduler/Scheduler.cpp
+index 09343113ef..18e6fccddf 100644
+--- a/services/surfaceflinger/Scheduler/Scheduler.cpp
++++ b/services/surfaceflinger/Scheduler/Scheduler.cpp
+@@ -175,15 +175,13 @@ void Scheduler::initializeIdleTimer(PhysicalDisplayId displayId) {
+                                     kernelIdleTimerCallback(displayId, TimerState::Expired);
+                                 }},
+              .vrr = {.onReset =
+-                              [this, displayId] {
+-                                  applyPolicy(&Policy::idleTimers, TimerState::Reset, displayId);
+-                                  mSchedulerCallback.vrrDisplayIdle(displayId, false);
+-                              },
+-                      .onExpired =
+-                              [this, displayId] {
+-                                  applyPolicy(&Policy::idleTimers, TimerState::Expired, displayId);
+-                                  mSchedulerCallback.vrrDisplayIdle(displayId, true);
+-                              }}});
++                             [this, displayId] {
++                                 mSchedulerCallback.vrrDisplayIdle(displayId, false);
++                             },
++                     .onExpired =
++                             [this, displayId] {
++                                 mSchedulerCallback.vrrDisplayIdle(displayId, true);
++                             }}});
+ }
+ 
+ bool Scheduler::designatePacesetterDisplay(std::optional<PhysicalDisplayId> pacesetterId) {
+@@ -1386,17 +1384,13 @@ std::shared_ptr<VsyncSchedule> Scheduler::promotePacesetterDisplayLocked(
+                                                                     TimerState::Expired);
+                                         }},
+                      .vrr = {.onReset =
+-                                      [this, pacesetterId] {
+-                                          applyPolicy(&Policy::idleTimers, TimerState::Reset,
+-                                                      *pacesetterId);
+-                                          mSchedulerCallback.vrrDisplayIdle(*pacesetterId, false);
+-                                      },
+-                              .onExpired =
+-                                      [this, pacesetterId] {
+-                                          applyPolicy(&Policy::idleTimers, TimerState::Expired,
+-                                                      *pacesetterId);
+-                                          mSchedulerCallback.vrrDisplayIdle(*pacesetterId, true);
+-                                      }}});
++                                     [this, pacesetterId] {
++                                         mSchedulerCallback.vrrDisplayIdle(*pacesetterId, false);
++                                     },
++                             .onExpired =
++                                     [this, pacesetterId] {
++                                         mSchedulerCallback.vrrDisplayIdle(*pacesetterId, true);
++                                     }}});
+ 
+             pacesetter.selectorPtr->startIdleTimer();
+         }
+-- 
+2.55.0
+
