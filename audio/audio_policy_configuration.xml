@@ -426,7 +426,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 <route type="mix" sink="BT SCO Headset"
                        sources="primary output,raw,deep_buffer,direct_pcm,compressed_offload,voip_rx,haptics output,spatial output"/>
                 <route type="mix" sink="BT BLE Out"
-                       sources="primary output,raw,mmap_no_irq_out,deep_buffer,direct_pcm,compressed_offload,voip_rx,haptics output,spatial output"/>
+                       sources="primary output,raw,mmap_no_irq_out,deep_buffer,direct_pcm,compressed_offload,voip_rx,haptics output"/>
                 <route type="mix" sink="BT SCO Car Kit"
                        sources="primary output,raw,deep_buffer,direct_pcm,compressed_offload,voip_rx,haptics output,spatial output"/>
                 <route type="mix" sink="USB Device Out"

@@ -140,6 +140,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     SamsungDoze
 
+# Dolby
+$(call inherit-product, hardware/dolby/dolby.mk)
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey

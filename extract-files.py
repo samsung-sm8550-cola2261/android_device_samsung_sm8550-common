@@ -59,7 +59,9 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/etc/init/vendor.qti.media.c2audio@1.0-service.rc': blob_fixup()
         .regex_replace('.*disabled.*\n', ''),
     ('vendor/etc/media_codecs_kalama.xml'): blob_fixup()
-        .regex_replace('.*media_codecs_(google_audio|google_c2|google_telephony|google_video|vendor_audio).*\n', ''),
+        .regex_replace('.*media_codecs_(google_audio|google_c2|google_telephony|google_video|vendor_audio).*\n', '')
+        .regex_replace('</MediaCodecs>','    <Include href="media_codecs_dolby_audio.xml" />')
+        .add_line_if_missing('</MediaCodecs>'),
     'vendor/lib64/libqcodec2_core.so': blob_fixup()
         .add_needed('libcodec2_shim.so'),
     'vendor/lib64/unihal_android.so': blob_fixup()
