@@ -306,7 +306,6 @@ PRODUCT_PACKAGES += \
     FrameworksResTarget \
     LineageResCommon \
     NcmTetheringOverlay \
-    OpenEUICCOverlay \
     SettingsResCommon \
     SettingsResSamsung \
     SystemUIResCommon \
